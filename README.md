@@ -1,2 +1,2 @@
 # Pasadictos
-VideoJuego de historia estilo visual novel
+VideoJuego de historia estilo visual novela
