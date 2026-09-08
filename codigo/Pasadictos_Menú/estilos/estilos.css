@@ -1,0 +1,1159 @@
+/**
+ * Estilos Principales del Videojuego
+ *
+ * Menú principal inspirado directamente
+ * en el prototipo visual.
+ */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    font-family: var(--font-body);
+
+    color: var(--text);
+
+    background-color: var(--page);
+}
+
+
+.contenedor-aplicacion {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+/* ==================================================
+   PANTALLA PRINCIPAL
+   ================================================== */
+
+.pantalla-menu-principal {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    overflow: hidden;
+
+    background: #241912;
+}
+
+
+/* ==================================================
+   FONDO BASE
+   ================================================== */
+
+.fondo-base-pantalla {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 0;
+}
+
+
+.fondo-base-pantalla .imagen-fondo {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ==================================================
+   MITAD IZQUIERDA
+   ================================================== */
+
+.mitad-izquierda {
+
+    position: relative;
+
+    width: 50%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: 2;
+
+    flex-shrink: 0;
+}
+
+
+/* ==================================================
+   FONDO IZQUIERDO
+   ================================================== */
+
+.fondo-mitad-izquierda {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 0;
+}
+
+
+.fondo-mitad-izquierda .imagen-fondo {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+/* ==================================================
+   DECORACIÓN
+   ================================================== */
+
+.decoracion-mitad-izquierda {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+
+.decoracion-mitad-izquierda .imagen-fondo {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+/* ==================================================
+   CONTENIDO IZQUIERDO
+   ================================================== */
+
+.contenido-mitad-izquierda {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 5;
+
+    overflow: hidden;
+}
+
+
+/* ==================================================
+   USUARIO
+   ================================================== */
+
+.usuario-principal {
+
+    position: absolute;
+
+    top: 18px;
+
+    left: 24px;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 12px;
+
+    width: auto;
+
+    height: auto;
+
+    padding: 0;
+
+    margin: 0;
+
+    background: transparent;
+
+    border: none !important;
+
+    outline: none !important;
+
+    box-shadow: none !important;
+
+    cursor: pointer;
+
+    color: #f3e7c3;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+}
+
+
+.usuario-principal:focus {
+
+    outline: none !important;
+
+    border: none !important;
+
+    box-shadow: none !important;
+}
+
+
+.usuario-principal img {
+
+    width: 78px;
+
+    height: 78px;
+
+    min-width: 78px;
+
+    min-height: 78px;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    display: block;
+
+    border: none !important;
+
+    outline: none !important;
+
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+
+    background: transparent;
+}
+
+
+.nombre-usuario {
+
+    display: block;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    line-height: 1;
+
+    color: #f0dfb5;
+
+    white-space: nowrap;
+
+    text-shadow:
+        1px 1px 2px #000,
+        0 0 3px #000;
+}
+
+
+/* ==================================================
+   LOGO
+   ================================================== */
+
+/*
+ * IMPORTANTE:
+ *
+ * El logo está en una capa SUPERIOR a los
+ * carteles.
+ *
+ * z-index: 20
+ */
+
+.contenedor-logo {
+
+    position: absolute;
+
+    top: 6.5%;
+
+    left: 47%;
+
+    width: min(440px, 49vh, 90%);
+
+    height: min(380px, 42vh, 90%);
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    animation: entradaLogo 0.8s ease-out forwards;
+}
+
+
+.logo-principal {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    filter: none;
+}
+
+
+/* ==================================================
+   CONTENEDOR DEL PNG DE CARTELES
+   ================================================== */
+
+/*
+ * El contenedor mantiene la proporción del
+ * PNG original.
+ *
+ * Se adapta al alto de la pantalla sin que
+ * aparezcan 4 carteles o se corten.
+ */
+
+.contenedor-botones-menu {
+
+    position: absolute;
+
+    top: 39%;
+
+    left: 46%;
+
+    width: min(590px, 66vh, 96%);
+
+    aspect-ratio: 1 / 1;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   PNG ÚNICO DE LOS CARTELES
+   ================================================== */
+
+.imagen-botones-menu {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+    filter: none;
+}
+
+
+/* ==================================================
+   ZONAS CLICKEABLES
+   ================================================== */
+
+.zonas-botones {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 20;
+
+    pointer-events: auto;
+}
+
+
+/* ==================================================
+   BOTONES INVISIBLES
+   ================================================== */
+
+/*
+ * Cada botón coincide aproximadamente
+ * con uno de los cinco carteles del PNG.
+ *
+ * NO se mueve al pasar el mouse.
+ */
+
+.zona-boton {
+
+    position: absolute;
+
+    left: 30%;
+
+    width: 43%;
+
+    height: 13%;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    opacity: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+}
+
+
+/* ==================================================
+   POSICIÓN DE CADA CARTEL
+   ================================================== */
+
+.zona-boton:nth-child(1) {
+
+    top: 12.5%;
+}
+
+
+.zona-boton:nth-child(2) {
+
+    top: 29%;
+}
+
+
+.zona-boton:nth-child(3) {
+
+    top: 45%;
+}
+
+
+.zona-boton:nth-child(4) {
+
+    top: 61%;
+}
+
+
+.zona-boton:nth-child(5) {
+
+    top: 75%;
+}
+
+
+/* ==================================================
+   TEXTO DE LOS CARTELES
+   ================================================== */
+
+/*
+ * El PNG solamente contiene la madera.
+ *
+ * Estos textos se colocan encima.
+ */
+
+.texto-boton-menu {
+
+    position: relative;
+
+    z-index: 30;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    height: 100%;
+
+    padding-bottom: 2px;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    font-size: clamp(
+        20px,
+        3.7vh,
+        34px
+    );
+
+    font-weight: normal;
+
+    line-height: 1;
+
+    color: #6c4b32;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+    text-shadow:
+        1px 1px 0 rgba(255, 244, 205, 0.45),
+        -1px -1px 0 rgba(73, 47, 28, 0.18);
+
+    transition:
+        filter 0.2s ease,
+        text-shadow 0.2s ease;
+}
+
+
+/* ==================================================
+   HOVER DE TEXTO
+   ================================================== */
+
+.zona-boton:hover .texto-boton-menu {
+
+    filter: brightness(1.12);
+
+    text-shadow:
+        1px 1px 0 rgba(255, 244, 205, 0.6),
+        0 0 5px rgba(255, 226, 160, 0.35);
+}
+
+
+/* ==================================================
+   CLICK
+   ================================================== */
+
+.zona-boton:active .texto-boton-menu {
+
+    filter: brightness(0.9);
+}
+
+
+/* ==================================================
+   MITAD DERECHA
+   ================================================== */
+
+.mitad-derecha {
+
+    position: relative;
+
+    width: 50%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: 2;
+
+    flex-shrink: 0;
+}
+
+
+/* ==================================================
+   ESCENA HISTÓRICA
+   ================================================== */
+
+.escena-historica {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+.escena-historica .imagen-fondo {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+}
+
+
+/* ==================================================
+   PANTALLAS GENERALES
+   ================================================== */
+
+.encabezado-pantalla {
+
+    padding: 1.5rem 2rem;
+
+    background-color: var(--surface);
+
+    border-bottom: 2px solid var(--border-strong);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+}
+
+
+.boton-volver {
+
+    padding: 0.6rem 1.2rem;
+
+    background-color: var(--primary);
+
+    color: var(--on-primary);
+
+    border: none;
+
+    border-radius: var(--radius);
+
+    font-size: var(--fs-sm);
+
+    font-weight: var(--fw-semibold);
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+
+.boton-volver:hover {
+
+    transform: translateX(-2px);
+
+    filter: brightness(1.1);
+}
+
+
+.boton-volver:active {
+
+    transform: translateX(0);
+}
+
+
+.contenido-pantalla-juego,
+.contenido-pantalla-tienda,
+.contenido-pantalla-cargar,
+.contenido-pantalla-opciones,
+.contenido-pantalla-usuario {
+
+    flex: 1;
+
+    padding: 2rem;
+
+    overflow-y: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1.5rem;
+}
+
+
+.pantalla-juego,
+.pantalla-tienda,
+.pantalla-cargar,
+.pantalla-opciones,
+.pantalla-usuario {
+
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+.titulo-pantalla {
+
+    font-size: var(--fs-3xl);
+
+    font-weight: var(--fw-display);
+
+    color: var(--primary);
+
+    margin-bottom: 0.5rem;
+}
+
+
+.mensaje-preparacion {
+
+    color: var(--text-muted);
+
+    line-height: var(--lh-body);
+
+    max-width: var(--measure-prose);
+}
+
+
+.area-expansion {
+
+    padding: 2rem;
+
+    background-color: var(--surface-accent);
+
+    border: 2px dashed var(--border);
+
+    border-radius: var(--radius);
+
+    color: var(--text-muted);
+
+    text-align: center;
+
+    min-height: 300px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-style: italic;
+
+    margin-top: 1rem;
+}
+
+
+.info-monedas {
+
+    padding: 1rem;
+
+    background-color: var(--surface);
+
+    border-left: 4px solid var(--primary);
+
+    border-radius: var(--radius-sm);
+
+    color: var(--text);
+}
+
+
+/* ==================================================
+   MODAL DE CONFIRMACIÓN
+   ================================================== */
+
+.pantalla-confirmacion-salir {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 1000;
+}
+
+
+.overlay-modal {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    backdrop-filter: blur(4px);
+}
+
+
+.modal-confirmacion {
+
+    background-color: var(--surface);
+
+    border: 2px solid var(--border-strong);
+
+    border-radius: var(--radius-lg);
+
+    padding: 2rem;
+
+    max-width: 400px;
+
+    box-shadow: var(--shadow-3);
+
+    animation: aparecerModal 0.4s ease-out forwards;
+}
+
+
+.titulo-modal {
+
+    font-size: var(--fs-2xl);
+
+    font-weight: var(--fw-semibold);
+
+    color: var(--primary);
+
+    margin-bottom: 1rem;
+}
+
+
+.mensaje-modal {
+
+    color: var(--text-muted);
+
+    line-height: var(--lh-body);
+
+    margin-bottom: 1.5rem;
+}
+
+
+.contenedor-botones-confirmacion {
+
+    display: flex;
+
+    gap: 1rem;
+
+    justify-content: flex-end;
+}
+
+
+.boton-confirmacion {
+
+    padding: 0.7rem 1.5rem;
+
+    border: none;
+
+    border-radius: var(--radius);
+
+    font-size: var(--fs-sm);
+
+    font-weight: var(--fw-semibold);
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    min-width: 100px;
+}
+
+
+.boton-si {
+
+    background-color: var(--danger);
+
+    color: white;
+}
+
+
+.boton-si:hover {
+
+    background-color: var(--danger);
+
+    transform: translateY(-2px);
+
+    filter: brightness(1.1);
+}
+
+
+.boton-no {
+
+    background-color: var(--surface-2);
+
+    color: var(--text);
+
+    border: 1px solid var(--border-strong);
+}
+
+
+.boton-no:hover {
+
+    background-color: var(--surface-accent);
+
+    transform: translateY(-2px);
+}
+
+
+/* ==================================================
+   IMÁGENES
+   ================================================== */
+
+.imagen-fondo {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
+
+/*
+ * En pantallas chicas mantenemos el menú entero.
+ *
+ * Ya NO hacemos que el logo y los botones
+ * tengan tamaños arbitrarios diferentes.
+ *
+ * Todo se reduce proporcionalmente.
+ */
+
+@media (max-width: 900px) {
+
+    .mitad-izquierda {
+
+        width: 100%;
+    }
+
+
+    .mitad-derecha {
+
+        display: none;
+    }
+
+
+    .contenedor-logo {
+
+        left: 50%;
+
+        top: 4%;
+
+        width: min(440px, 49vh, 80vw);
+
+        height: min(380px, 42vh, 80vw);
+    }
+
+
+    .contenedor-botones-menu {
+
+        left: 50%;
+
+        top: 39%;
+
+        width: min(590px, 66vh, 100vw);
+    }
+
+
+    .usuario-principal {
+
+        top: 15px;
+
+        left: 20px;
+    }
+
+
+    .usuario-principal img {
+
+        width: 68px;
+
+        height: 68px;
+
+        min-width: 68px;
+
+        min-height: 68px;
+    }
+
+
+    .nombre-usuario {
+
+        font-size: 18px;
+    }
+}
+
+
+/* ==================================================
+   MÓVIL
+   ================================================== */
+
+@media (max-width: 600px) {
+
+    .usuario-principal {
+
+        top: 10px;
+
+        left: 12px;
+
+        gap: 7px;
+    }
+
+
+    .usuario-principal img {
+
+        width: 56px;
+
+        height: 56px;
+
+        min-width: 56px;
+
+        min-height: 56px;
+    }
+
+
+    .nombre-usuario {
+
+        font-size: 15px;
+    }
+
+
+    .contenedor-logo {
+
+        top: 3%;
+
+        width: min(380px, 43vh, 82vw);
+
+        height: min(330px, 37vh, 82vw);
+    }
+
+
+    .contenedor-botones-menu {
+
+        top: 39%;
+
+        width: min(500px, 58vh, 105vw);
+    }
+
+
+    .texto-boton-menu {
+
+        font-size: clamp(
+            18px,
+            3.8vh,
+            30px
+        );
+    }
+}
+
+
+/* ==================================================
+   PANTALLAS MUY BAJAS
+   ================================================== */
+
+@media (max-height: 650px) {
+
+    .contenedor-logo {
+
+        top: 1%;
+
+        width: min(380px, 45vh, 80vw);
+
+        height: min(320px, 38vh, 80vw);
+    }
+
+
+    .contenedor-botones-menu {
+
+        top: 36%;
+
+        width: min(500px, 65vh, 100vw);
+    }
+
+
+    .texto-boton-menu {
+
+        font-size: clamp(
+            17px,
+            3.5vh,
+            27px
+        );
+    }
+}
