@@ -1,9 +1,20 @@
 /**
- * Estilos Principales del Videojuego
+ * Estilos Principales de Pasadictos
  *
- * Menú principal inspirado directamente
- * en el prototipo visual.
+ * Incluye:
+ *
+ * - Menú principal
+ * - Pantalla de juego
+ * - Diálogos
+ * - Opciones
+ * - Barra superior
+ * - Barra inferior
  */
+
+
+/* ==================================================
+   REINICIO GENERAL
+   ================================================== */
 
 * {
 
@@ -17,6 +28,8 @@
 
 html,
 body {
+    margin: 0;
+    padding: 0;
 
     width: 100%;
 
@@ -24,28 +37,705 @@ body {
 
     overflow: hidden;
 
-    font-family: var(--font-body);
+    background: #000;
 
-    color: var(--text);
+    color: #fff;
 
-    background-color: var(--page);
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+}
+
+
+body {
+
+    margin: 0;
+}
+
+
+button {
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
 }
 
 
 .contenedor-aplicacion {
 
-    width: 100%;
+    width: 100vw;
 
-    height: 100%;
+    height: 100vh;
 
-    display: flex;
+    overflow: hidden;
 
-    flex-direction: column;
+    position: relative;
 }
 
 
 /* ==================================================
-   PANTALLA PRINCIPAL
+   PANTALLA DE JUEGO
+   ================================================== */
+
+.pantalla-juego {
+
+    position: relative;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+/* ==================================================
+   BARRA SUPERIOR
+   ================================================== */
+
+.barra-arriba-juego {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 6.2vh;
+
+    min-height: 28px;
+
+    max-height: 45px;
+
+    z-index: 100;
+
+    overflow: hidden;
+
+    pointer-events: auto;
+}
+
+
+.barra-arriba-juego > img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    user-select: none;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   PUNTOS
+   ================================================== */
+
+.puntos-juego {
+
+    position: absolute;
+
+    left: 1.2%;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 2;
+
+    color: #f3e2bd;
+
+    font-size: clamp(
+        11px,
+        1.5vh,
+        17px
+    );
+
+    text-shadow:
+        1px 1px 2px #000;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   ÉPOCA
+   ================================================== */
+
+.epoca-juego {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform: translate(
+        -50%,
+        -50%
+    );
+
+    z-index: 2;
+
+    color: #f3e2bd;
+
+    font-size: clamp(
+        11px,
+        1.5vh,
+        17px
+    );
+
+    text-shadow:
+        1px 1px 2px #000;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   ZONA CENTRAL
+   ================================================== */
+
+.zona-central-juego {
+
+    position: absolute;
+
+    top: 6.2vh;
+
+    left: 0;
+
+    width: 100%;
+
+    height: calc(
+        100vh - 13vh
+    );
+
+    background: #000;
+
+    z-index: 10;
+
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   CONTENEDOR DEL DIÁLOGO
+   ================================================== */
+
+.contenedor-dialogo-juego {
+
+    position: absolute;
+
+    left: 1%;
+
+    bottom: 1%;
+
+    width: 98%;
+
+    height: 34%;
+
+    min-height: 125px;
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   IMAGEN DEL PERGAMINO
+   ================================================== */
+
+.contenedor-dialogo-juego > img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
+
+    user-select: none;
+}
+
+
+/* ==================================================
+   NOMBRE DEL PERSONAJE
+   ================================================== */
+
+.nombre-personaje-juego {
+
+    position: absolute;
+
+    top: -12%;
+
+    left: 10%;
+
+    width: 20%;
+
+    height: 27%;
+
+    min-width: 130px;
+
+    min-height: 35px;
+
+    z-index: 5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.nombre-personaje-juego img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
+
+    user-select: none;
+}
+
+
+.texto-nombre-personaje {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #f5ead3;
+
+    font-size: clamp(
+        14px,
+        2.4vh,
+        25px
+    );
+
+    text-shadow:
+        1px 1px 2px #3a2414;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   TEXTO DEL DIÁLOGO
+   ================================================== */
+
+.texto-dialogo-juego {
+
+    position: absolute;
+
+    left: 8%;
+
+    right: 8%;
+
+    top: 25%;
+
+    bottom: 10%;
+
+    z-index: 3;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: flex-start;
+
+    color: #594536;
+
+    font-size: clamp(
+        15px,
+        2.8vh,
+        30px
+    );
+
+    line-height: 1.35;
+
+    text-align: left;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    text-shadow:
+        0 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+}
+
+
+/* ==================================================
+   MENÚ DE OPCIONES
+   ================================================== */
+
+.contenedor-opciones-juego {
+
+    position: absolute;
+
+    top: 7%;
+
+    right: 7%;
+
+    width: min(
+        27vw,
+        250px
+    );
+
+    height: min(
+        48vh,
+        310px
+    );
+
+    min-width: 160px;
+
+    min-height: 190px;
+
+    z-index: 50;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    pointer-events: auto;
+}
+
+
+/* ==================================================
+   FONDO DE OPCIONES
+   ================================================== */
+
+.fondo-opciones-juego {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
+
+    user-select: none;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   LISTA DE OPCIONES
+   ================================================== */
+
+.lista-opciones-juego {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 72%;
+
+    height: 76%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-evenly;
+
+    align-items: center;
+}
+
+
+/* ==================================================
+   BOTÓN DE OPCIÓN
+   ================================================== */
+
+.boton-opcion-juego {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 19%;
+
+    min-height: 30px;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 0;
+
+    margin: 0;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #f5e8d0;
+
+    overflow: visible;
+}
+
+
+.boton-opcion-juego img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+.boton-opcion-juego span {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: block;
+
+    width: 90%;
+
+    color: #f7e4c3;
+
+    font-size: clamp(
+        11px,
+        1.7vh,
+        18px
+    );
+
+    line-height: 1.1;
+
+    text-align: center;
+
+    text-shadow:
+        1px 1px 2px #241208;
+
+    pointer-events: none;
+
+    white-space: normal;
+}
+
+
+.boton-opcion-juego:hover {
+
+    filter: brightness(1.15);
+
+    transform: scale(1.03);
+}
+
+
+.boton-opcion-juego:active {
+
+    filter: brightness(0.85);
+
+    transform: scale(0.98);
+}
+
+
+/* ==================================================
+   BARRA INFERIOR
+   ================================================== */
+
+.barra-abajo-juego {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 6.8vh;
+
+    min-height: 28px;
+
+    max-height: 45px;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 1.3%;
+
+    overflow: hidden;
+
+    pointer-events: auto;
+}
+
+
+/* ==================================================
+   IMAGEN DE LA BARRA
+   ================================================== */
+
+.barra-abajo-juego > img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* ==================================================
+   BOTONES INFERIORES
+   ================================================== */
+
+.boton-barra-juego {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 12%;
+
+    height: 65%;
+
+    min-width: 70px;
+
+    min-height: 20px;
+
+    max-width: 130px;
+
+    border: none;
+
+    background: rgba(
+        75,
+        38,
+        15,
+        0.85
+    );
+
+    border-radius: 4px;
+
+    border-top:
+        1px solid
+        rgba(
+            225,
+            180,
+            105,
+            0.7
+        );
+
+    border-bottom:
+        1px solid
+        rgba(
+            30,
+            12,
+            3,
+            0.9
+        );
+
+    color: #f2dfbb;
+
+    font-size: clamp(
+        9px,
+        1.4vh,
+        15px
+    );
+
+    cursor: pointer;
+
+    text-shadow:
+        1px 1px 2px #000;
+
+    box-shadow:
+        inset 0 0 4px
+        rgba(
+            0,
+            0,
+            0,
+            0.7
+        );
+}
+
+
+.boton-barra-juego:hover {
+
+    filter: brightness(1.2);
+}
+
+
+.boton-barra-juego:active {
+
+    filter: brightness(0.8);
+
+    transform: translateY(1px);
+}
+
+
+/* ==================================================
+   PANTALLAS GENERALES
    ================================================== */
 
 .pantalla-menu-principal {
@@ -63,10 +753,6 @@ body {
     background: #241912;
 }
 
-
-/* ==================================================
-   FONDO BASE
-   ================================================== */
 
 .fondo-base-pantalla {
 
@@ -92,10 +778,6 @@ body {
 }
 
 
-/* ==================================================
-   MITAD IZQUIERDA
-   ================================================== */
-
 .mitad-izquierda {
 
     position: relative;
@@ -111,10 +793,6 @@ body {
     flex-shrink: 0;
 }
 
-
-/* ==================================================
-   FONDO IZQUIERDO
-   ================================================== */
 
 .fondo-mitad-izquierda {
 
@@ -137,14 +815,8 @@ body {
     height: 100%;
 
     object-fit: cover;
-
-    object-position: center;
 }
 
-
-/* ==================================================
-   DECORACIÓN
-   ================================================== */
 
 .decoracion-mitad-izquierda {
 
@@ -169,14 +841,8 @@ body {
     height: 100%;
 
     object-fit: cover;
-
-    object-position: center;
 }
 
-
-/* ==================================================
-   CONTENIDO IZQUIERDO
-   ================================================== */
 
 .contenido-mitad-izquierda {
 
@@ -212,48 +878,17 @@ body {
 
     align-items: center;
 
-    justify-content: flex-start;
-
     gap: 12px;
-
-    width: auto;
-
-    height: auto;
 
     padding: 0;
 
-    margin: 0;
-
     background: transparent;
 
-    border: none !important;
-
-    outline: none !important;
-
-    box-shadow: none !important;
+    border: none;
 
     cursor: pointer;
 
     color: #f3e7c3;
-
-    font-family:
-        Georgia,
-        'Times New Roman',
-        serif;
-
-    appearance: none;
-
-    -webkit-appearance: none;
-}
-
-
-.usuario-principal:focus {
-
-    outline: none !important;
-
-    border: none !important;
-
-    box-shadow: none !important;
 }
 
 
@@ -263,65 +898,28 @@ body {
 
     height: 78px;
 
-    min-width: 78px;
-
-    min-height: 78px;
-
     object-fit: contain;
-
-    object-position: center;
-
-    display: block;
-
-    border: none !important;
-
-    outline: none !important;
-
-    border-radius: 0 !important;
-
-    box-shadow: none !important;
-
-    background: transparent;
 }
 
 
 .nombre-usuario {
 
-    display: block;
-
-    font-family:
-        Georgia,
-        'Times New Roman',
-        serif;
-
     font-size: 20px;
 
     font-weight: bold;
-
-    line-height: 1;
 
     color: #f0dfb5;
 
     white-space: nowrap;
 
     text-shadow:
-        1px 1px 2px #000,
-        0 0 3px #000;
+        1px 1px 2px #000;
 }
 
 
 /* ==================================================
    LOGO
    ================================================== */
-
-/*
- * IMPORTANTE:
- *
- * El logo está en una capa SUPERIOR a los
- * carteles.
- *
- * z-index: 20
- */
 
 .contenedor-logo {
 
@@ -331,11 +929,20 @@ body {
 
     left: 47%;
 
-    width: min(440px, 49vh, 90%);
+    width: min(
+        440px,
+        49vh,
+        90%
+    );
 
-    height: min(380px, 42vh, 90%);
+    height: min(
+        380px,
+        42vh,
+        90%
+    );
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     display: flex;
 
@@ -346,8 +953,6 @@ body {
     z-index: 20;
 
     pointer-events: none;
-
-    animation: entradaLogo 0.8s ease-out forwards;
 }
 
 
@@ -360,24 +965,12 @@ body {
     height: 100%;
 
     object-fit: contain;
-
-    object-position: center;
-
-    filter: none;
 }
 
 
 /* ==================================================
-   CONTENEDOR DEL PNG DE CARTELES
+   BOTONES DEL MENÚ
    ================================================== */
-
-/*
- * El contenedor mantiene la proporción del
- * PNG original.
- *
- * Se adapta al alto de la pantalla sin que
- * aparezcan 4 carteles o se corten.
- */
 
 .contenedor-botones-menu {
 
@@ -387,21 +980,22 @@ body {
 
     left: 46%;
 
-    width: min(590px, 66vh, 96%);
+    width: min(
+        590px,
+        66vh,
+        96%
+    );
 
     aspect-ratio: 1 / 1;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     z-index: 10;
 
     pointer-events: none;
 }
 
-
-/* ==================================================
-   PNG ÚNICO DE LOS CARTELES
-   ================================================== */
 
 .imagen-botones-menu {
 
@@ -413,25 +1007,13 @@ body {
 
     height: 100%;
 
-    display: block;
-
     object-fit: contain;
-
-    object-position: center;
 
     pointer-events: none;
 
     user-select: none;
-
-    -webkit-user-drag: none;
-
-    filter: none;
 }
 
-
-/* ==================================================
-   ZONAS CLICKEABLES
-   ================================================== */
 
 .zonas-botones {
 
@@ -449,17 +1031,6 @@ body {
 }
 
 
-/* ==================================================
-   BOTONES INVISIBLES
-   ================================================== */
-
-/*
- * Cada botón coincide aproximadamente
- * con uno de los cinco carteles del PNG.
- *
- * NO se mueve al pasar el mouse.
- */
-
 .zona-boton {
 
     position: absolute;
@@ -472,33 +1043,19 @@ body {
 
     padding: 0;
 
-    margin: 0;
-
     border: none;
-
-    outline: none;
 
     background: transparent;
 
     cursor: pointer;
-
-    opacity: 1;
 
     display: flex;
 
     align-items: center;
 
     justify-content: center;
-
-    appearance: none;
-
-    -webkit-appearance: none;
 }
 
-
-/* ==================================================
-   POSICIÓN DE CADA CARTEL
-   ================================================== */
 
 .zona-boton:nth-child(1) {
 
@@ -530,16 +1087,6 @@ body {
 }
 
 
-/* ==================================================
-   TEXTO DE LOS CARTELES
-   ================================================== */
-
-/*
- * El PNG solamente contiene la madera.
- *
- * Estos textos se colocan encima.
- */
-
 .texto-boton-menu {
 
     position: relative;
@@ -556,8 +1103,6 @@ body {
 
     height: 100%;
 
-    padding-bottom: 2px;
-
     font-family:
         Georgia,
         'Times New Roman',
@@ -569,54 +1114,16 @@ body {
         34px
     );
 
-    font-weight: normal;
-
-    line-height: 1;
-
     color: #6c4b32;
 
     text-align: center;
 
-    white-space: nowrap;
-
     pointer-events: none;
-
-    text-shadow:
-        1px 1px 0 rgba(255, 244, 205, 0.45),
-        -1px -1px 0 rgba(73, 47, 28, 0.18);
-
-    transition:
-        filter 0.2s ease,
-        text-shadow 0.2s ease;
 }
 
 
 /* ==================================================
-   HOVER DE TEXTO
-   ================================================== */
-
-.zona-boton:hover .texto-boton-menu {
-
-    filter: brightness(1.12);
-
-    text-shadow:
-        1px 1px 0 rgba(255, 244, 205, 0.6),
-        0 0 5px rgba(255, 226, 160, 0.35);
-}
-
-
-/* ==================================================
-   CLICK
-   ================================================== */
-
-.zona-boton:active .texto-boton-menu {
-
-    filter: brightness(0.9);
-}
-
-
-/* ==================================================
-   MITAD DERECHA
+   MITAD DERECHA DEL MENÚ
    ================================================== */
 
 .mitad-derecha {
@@ -630,14 +1137,8 @@ body {
     overflow: hidden;
 
     z-index: 2;
-
-    flex-shrink: 0;
 }
 
-
-/* ==================================================
-   ESCENA HISTÓRICA
-   ================================================== */
 
 .escena-historica {
 
@@ -653,15 +1154,11 @@ body {
 
 .escena-historica .imagen-fondo {
 
-    display: block;
-
     width: 100%;
 
     height: 100%;
 
     object-fit: cover;
-
-    object-position: center;
 }
 
 
@@ -669,169 +1166,31 @@ body {
    PANTALLAS GENERALES
    ================================================== */
 
-.encabezado-pantalla {
-
-    padding: 1.5rem 2rem;
-
-    background-color: var(--surface);
-
-    border-bottom: 2px solid var(--border-strong);
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 1rem;
-}
-
-
-.boton-volver {
-
-    padding: 0.6rem 1.2rem;
-
-    background-color: var(--primary);
-
-    color: var(--on-primary);
-
-    border: none;
-
-    border-radius: var(--radius);
-
-    font-size: var(--fs-sm);
-
-    font-weight: var(--fw-semibold);
-
-    cursor: pointer;
-
-    transition: all 0.3s ease;
-}
-
-
-.boton-volver:hover {
-
-    transform: translateX(-2px);
-
-    filter: brightness(1.1);
-}
-
-
-.boton-volver:active {
-
-    transform: translateX(0);
-}
-
-
-.contenido-pantalla-juego,
-.contenido-pantalla-tienda,
-.contenido-pantalla-cargar,
-.contenido-pantalla-opciones,
-.contenido-pantalla-usuario {
-
-    flex: 1;
-
-    padding: 2rem;
-
-    overflow-y: auto;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 1.5rem;
-}
-
-
 .pantalla-juego,
-.pantalla-tienda,
+
 .pantalla-cargar,
 .pantalla-opciones,
 .pantalla-usuario {
 
-    display: flex;
-
-    flex-direction: column;
-
     width: 100%;
 
     height: 100%;
-}
-
-
-.titulo-pantalla {
-
-    font-size: var(--fs-3xl);
-
-    font-weight: var(--fw-display);
-
-    color: var(--primary);
-
-    margin-bottom: 0.5rem;
-}
-
-
-.mensaje-preparacion {
-
-    color: var(--text-muted);
-
-    line-height: var(--lh-body);
-
-    max-width: var(--measure-prose);
-}
-
-
-.area-expansion {
-
-    padding: 2rem;
-
-    background-color: var(--surface-accent);
-
-    border: 2px dashed var(--border);
-
-    border-radius: var(--radius);
-
-    color: var(--text-muted);
-
-    text-align: center;
-
-    min-height: 300px;
 
     display: flex;
 
-    align-items: center;
-
-    justify-content: center;
-
-    font-style: italic;
-
-    margin-top: 1rem;
-}
-
-
-.info-monedas {
-
-    padding: 1rem;
-
-    background-color: var(--surface);
-
-    border-left: 4px solid var(--primary);
-
-    border-radius: var(--radius-sm);
-
-    color: var(--text);
+    flex-direction: column;
 }
 
 
 /* ==================================================
-   MODAL DE CONFIRMACIÓN
+   MODAL DE SALIR
    ================================================== */
 
 .pantalla-confirmacion-salir {
 
     position: fixed;
 
-    top: 0;
-
-    left: 0;
+    inset: 0;
 
     width: 100%;
 
@@ -845,51 +1204,45 @@ body {
 
     position: absolute;
 
-    top: 0;
-
-    left: 0;
+    inset: 0;
 
     width: 100%;
 
     height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.7);
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.7
+        );
 
     display: flex;
 
     align-items: center;
 
     justify-content: center;
-
-    backdrop-filter: blur(4px);
 }
 
 
 .modal-confirmacion {
 
-    background-color: var(--surface);
+    background: #2a1b12;
 
-    border: 2px solid var(--border-strong);
-
-    border-radius: var(--radius-lg);
+    border:
+        2px solid
+        #c9a961;
 
     padding: 2rem;
 
     max-width: 400px;
-
-    box-shadow: var(--shadow-3);
-
-    animation: aparecerModal 0.4s ease-out forwards;
 }
 
 
 .titulo-modal {
 
-    font-size: var(--fs-2xl);
-
-    font-weight: var(--fw-semibold);
-
-    color: var(--primary);
+    color: #c9a961;
 
     margin-bottom: 1rem;
 }
@@ -897,9 +1250,7 @@ body {
 
 .mensaje-modal {
 
-    color: var(--text-muted);
-
-    line-height: var(--lh-body);
+    color: #eee;
 
     margin-bottom: 1.5rem;
 }
@@ -911,7 +1262,7 @@ body {
 
     gap: 1rem;
 
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 
@@ -921,58 +1272,28 @@ body {
 
     border: none;
 
-    border-radius: var(--radius);
-
-    font-size: var(--fs-sm);
-
-    font-weight: var(--fw-semibold);
-
     cursor: pointer;
-
-    transition: all 0.3s ease;
-
-    min-width: 100px;
 }
 
 
 .boton-si {
 
-    background-color: var(--danger);
+    background: #633333;
 
     color: white;
 }
 
 
-.boton-si:hover {
-
-    background-color: var(--danger);
-
-    transform: translateY(-2px);
-
-    filter: brightness(1.1);
-}
-
-
 .boton-no {
 
-    background-color: var(--surface-2);
+    background: #6b5d4f;
 
-    color: var(--text);
-
-    border: 1px solid var(--border-strong);
-}
-
-
-.boton-no:hover {
-
-    background-color: var(--surface-accent);
-
-    transform: translateY(-2px);
+    color: white;
 }
 
 
 /* ==================================================
-   IMÁGENES
+   IMÁGENES GENERALES
    ================================================== */
 
 .imagen-fondo {
@@ -989,171 +1310,4659 @@ body {
    RESPONSIVE
    ================================================== */
 
-/*
- * En pantallas chicas mantenemos el menú entero.
- *
- * Ya NO hacemos que el logo y los botones
- * tengan tamaños arbitrarios diferentes.
- *
- * Todo se reduce proporcionalmente.
- */
-
 @media (max-width: 900px) {
 
-    .mitad-izquierda {
+    .contenedor-opciones-juego {
 
-        width: 100%;
+        right: 3%;
+
+        width: 28vw;
     }
 
 
-    .mitad-derecha {
+    .texto-dialogo-juego {
 
-        display: none;
-    }
-
-
-    .contenedor-logo {
-
-        left: 50%;
-
-        top: 4%;
-
-        width: min(440px, 49vh, 80vw);
-
-        height: min(380px, 42vh, 80vw);
-    }
-
-
-    .contenedor-botones-menu {
-
-        left: 50%;
-
-        top: 39%;
-
-        width: min(590px, 66vh, 100vw);
-    }
-
-
-    .usuario-principal {
-
-        top: 15px;
-
-        left: 20px;
-    }
-
-
-    .usuario-principal img {
-
-        width: 68px;
-
-        height: 68px;
-
-        min-width: 68px;
-
-        min-height: 68px;
-    }
-
-
-    .nombre-usuario {
-
-        font-size: 18px;
+        font-size: 2.4vh;
     }
 }
 
 
+@media (max-width: 600px) {
+
+    .contenedor-opciones-juego {
+
+        width: 32vw;
+
+        min-width: 140px;
+    }
+
+
+    .barra-abajo-juego {
+
+        gap: 1%;
+    }
+
+
+    .boton-barra-juego {
+
+        min-width: 55px;
+
+        width: 16%;
+    }
+
+
+    .texto-dialogo-juego {
+
+        left: 6%;
+
+        right: 6%;
+
+        font-size: 2vh;
+    }
+
+
+    .nombre-personaje-juego {
+
+        left: 8%;
+
+        width: 28%;
+    }
+}
+
 /* ==================================================
-   MÓVIL
+   PANTALLA DE CONFIRMACIÓN DE SALIDA
+   ================================================== */
+
+.pantalla-confirmacion-salir {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #000;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* ==================================================
+   FONDO
+   ================================================== */
+
+.fondo-confirmacion-salir {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    user-select: none;
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   CONTENIDO
+   ================================================== */
+
+.contenido-confirmacion-salir {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding-bottom: 2vh;
+}
+
+
+/* ==================================================
+   TÍTULO
+   ================================================== */
+
+.titulo-confirmacion-salir {
+
+    margin-bottom: 2.2vh;
+
+    color: #17110d;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    font-size: clamp(
+        20px,
+        2.6vw,
+        30px
+    );
+
+    font-weight: normal;
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 1px 1px
+        rgba(
+            255,
+            255,
+            255,
+            0.35
+        );
+}
+
+
+/* ==================================================
+   BOTONES
+   ================================================== */
+
+.botones-confirmacion-salir {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: clamp(
+        18px,
+        2vw,
+        30px
+    );
+}
+
+
+/* ==================================================
+   BOTÓN INDIVIDUAL
+   ================================================== */
+
+.boton-confirmacion-salir {
+
+    position: relative;
+
+    width: clamp(
+        90px,
+        10vw,
+        120px
+    );
+
+    height: clamp(
+        32px,
+        4vw,
+        45px
+    );
+
+    padding: 0;
+
+    margin: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    outline: none;
+
+    transition:
+        transform 0.18s ease,
+        filter 0.18s ease;
+}
+
+
+/* ==================================================
+   IMAGEN DEL BOTÓN
+   ================================================== */
+
+.boton-confirmacion-salir img {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: fill;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* ==================================================
+   TEXTO DEL BOTÓN
+   ================================================== */
+
+.boton-confirmacion-salir span {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #f4e5cc;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    font-size: clamp(
+        11px,
+        1.2vw,
+        16px
+    );
+
+    font-weight: normal;
+
+    text-shadow:
+        1px 1px 2px
+        rgba(
+            0,
+            0,
+            0,
+            0.9
+        );
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* ==================================================
+   HOVER
+   ================================================== */
+
+.boton-confirmacion-salir:hover {
+
+    transform:
+        scale(1.07);
+
+    filter:
+        brightness(1.15);
+}
+
+
+/* ==================================================
+   CLICK
+   ================================================== */
+
+.boton-confirmacion-salir:active {
+
+    transform:
+        scale(0.94);
+
+    filter:
+        brightness(0.85);
+}
+
+
+/* ==================================================
+   QUITAR OUTLINE DEL NAVEGADOR
+   ================================================== */
+
+.boton-confirmacion-salir:focus {
+
+    outline: none;
+}
+
+
+/* ==================================================
+   PANTALLAS PEQUEÑAS
    ================================================== */
 
 @media (max-width: 600px) {
 
-    .usuario-principal {
+    .titulo-confirmacion-salir {
 
-        top: 10px;
+        font-size: 5vw;
 
-        left: 12px;
-
-        gap: 7px;
+        margin-bottom: 3vh;
     }
 
 
-    .usuario-principal img {
+    .botones-confirmacion-salir {
 
-        width: 56px;
-
-        height: 56px;
-
-        min-width: 56px;
-
-        min-height: 56px;
+        gap: 4vw;
     }
 
 
-    .nombre-usuario {
+    .boton-confirmacion-salir {
 
-        font-size: 15px;
+        width: 25vw;
+
+        height: 9vw;
     }
+}
 
+/* ==================================================
+   BOTONES INFERIORES - PNG INDIVIDUAL
+   ================================================== */
 
-    .contenedor-logo {
+/* Ocultar la imagen única que ocupaba toda la barra */
 
-        top: 3%;
-
-        width: min(380px, 43vh, 82vw);
-
-        height: min(330px, 37vh, 82vw);
-    }
-
-
-    .contenedor-botones-menu {
-
-        top: 39%;
-
-        width: min(500px, 58vh, 105vw);
-    }
-
-
-    .texto-boton-menu {
-
-        font-size: clamp(
-            18px,
-            3.8vh,
-            30px
-        );
-    }
+.barra-abajo-juego > img {
+    display: none;
 }
 
 
 /* ==================================================
-   PANTALLAS MUY BAJAS
+   BOTÓN INDIVIDUAL
    ================================================== */
 
-@media (max-height: 650px) {
+.boton-barra-juego {
 
-    .contenedor-logo {
+    position: relative;
 
-        top: 1%;
+    z-index: 2;
 
-        width: min(380px, 45vh, 80vw);
+    width: 12%;
 
-        height: min(320px, 38vh, 80vw);
-    }
+    height: 65%;
+
+    min-width: 70px;
+
+    min-height: 20px;
+
+    max-width: 130px;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: none;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    color: #f2dfbb;
+
+    font-size: clamp(
+        9px,
+        1.4vh,
+        15px
+    );
+
+    cursor: pointer;
+
+    text-shadow:
+        1px 1px 2px #000;
+
+    box-shadow: none;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+}
 
 
-    .contenedor-botones-menu {
+/* ==================================================
+   PNG DE CADA BOTÓN
+   ================================================== */
 
-        top: 36%;
+.imagen-boton-barra-juego {
 
-        width: min(500px, 65vh, 100vw);
-    }
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    user-select: none;
+}
 
 
-    .texto-boton-menu {
+/* ==================================================
+   TEXTO
+   ================================================== */
 
-        font-size: clamp(
-            17px,
-            3.5vh,
-            27px
+.texto-boton-barra-juego {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #f2dfbb;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    font-size: clamp(
+        9px,
+        1.4vh,
+        15px
+    );
+
+    text-align: center;
+
+    text-shadow:
+        1px 1px 2px #000;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    white-space: nowrap;
+}
+
+
+/* ==================================================
+   HOVER
+   ================================================== */
+
+.boton-barra-juego:hover {
+
+    filter:
+        brightness(1.15);
+
+    transform:
+        scale(1.03);
+}
+
+
+/* ==================================================
+   CLICK
+   ================================================== */
+
+.boton-barra-juego:active {
+
+    filter:
+        brightness(0.85);
+
+    transform:
+        scale(0.98);
+}
+
+
+/* ==================================================
+   QUITAR OUTLINE
+   ================================================== */
+
+.boton-barra-juego:focus {
+
+    outline: none;
+}
+
+/* ==================================================
+   ESCENA DE JUAN MANUEL DE ROSAS
+   ================================================== */
+
+
+/* FONDO DE ROSAS */
+
+.fondo-rosas-juego {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    z-index: 0;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+
+/* IMAGEN DE JUAN MANUEL DE ROSAS */
+
+.imagen-rosas-juego {
+    position: absolute;
+
+    left: 2%;
+    bottom: 0;
+
+    width: auto;
+    height: 92%;
+
+    max-width: 45%;
+
+    object-fit: contain;
+    object-position: bottom left;
+
+    z-index: 5;
+
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ==================================================
+   AJUSTES VISUALES DE LA PANTALLA DE JUEGO
+   ================================================== */
+
+
+/* ==================================================
+   BAJAR TODA LA SECCIÓN DEL DIÁLOGO
+   ================================================== */
+
+.contenedor-dialogo-juego {
+
+    bottom: -3%;
+
+}
+
+
+/* ==================================================
+   HACER MÁS GRANDE EL MENÚ DE PREGUNTAS
+   ================================================== */
+
+.contenedor-opciones-juego {
+
+    width: min(
+        32vw,
+        330px
+    );
+
+    height: min(
+        58vh,
+        390px
+    );
+
+}
+
+
+/* ==================================================
+   ESPACIADO INTERNO DE LAS PREGUNTAS
+   ================================================== */
+
+.lista-opciones-juego {
+
+    width: 78%;
+
+    height: 78%;
+
+    justify-content: space-evenly;
+
+}
+
+
+/* ==================================================
+   LETRA DE LAS PREGUNTAS UN POQUITO MÁS CHICA
+   ================================================== */
+
+.boton-opcion-juego span {
+
+    font-size: clamp(
+        13px,
+        1.5vh,
+        17px
+    );
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    line-height: 1.05;
+
+}
+
+
+/* ==================================================
+   BOTONES DE ABAJO MÁS JUNTOS
+   ================================================== */
+
+.barra-abajo-juego {
+
+    gap: 0.5%;
+
+}
+
+/* ==================================================
+   TAMAÑO DEL CARTEL DE DIÁLOGO
+   ================================================== */
+
+/* Agrandamos solamente el fondo/pergamino
+   del diálogo, sin agrandar el texto */
+
+.contenedor-dialogo-juego > img {
+
+    width: 104%;
+    height: 105%;
+
+    left: -2%;
+    top: -9%;
+
+}
+
+
+/* ==================================================
+   ROSAS CUANDO HABLA LINALI
+   ================================================== */
+
+/* Cuando Linali está hablando:
+   Rosas se ve más alejado y oscuro */
+
+.zona-central-juego.linali-hablando .imagen-rosas-juego {
+
+    transform: scale(0.88);
+
+    transform-origin: bottom left;
+
+    filter:
+        brightness(0.60)
+        drop-shadow(
+            4px 4px 6px
+            rgba(0, 0, 0, 0.65)
         );
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+
+}
+
+
+/* ==================================================
+   ROSAS CUANDO ÉL HABLA
+   ================================================== */
+
+/* Cuando habla Rosas vuelve a su tamaño y
+   aspecto normal */
+
+.zona-central-juego.rosas-hablando .imagen-rosas-juego {
+
+    transform: scale(1);
+
+    transform-origin: bottom left;
+
+    filter:
+        brightness(1)
+        drop-shadow(
+            0 0 0
+            rgba(0, 0, 0, 0)
+        );
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+
+}
+
+/* ==================================================
+   SOLO CARTEL DE PREGUNTAS DE LA ENTREVISTA
+   ================================================== */
+
+.contenedor-opciones-juego {
+    width: min(34vw, 340px);
+    height: min(62vh, 410px);
+}
+
+
+/* ==================================================
+   SOLO ROSAS: UN POQUITO MÁS ARRIBA
+   ================================================== */
+
+.imagen-rosas-juego {
+    bottom: 10%;
+}
+
+/* SOLO AGRANDAR EL PERGAMINO */
+.fondo-opciones-juego {
+    width: 110% !important;
+    height: 110% !important;
+    left: -5.5% !important;
+    top: -5.5% !important;
+}
+
+/* ==================================================
+   AJUSTES FINALES PANTALLA DE JUEGO
+   (NO MODIFICA MENÚ NI OPCIONES)
+   ================================================== */
+
+
+/* ==================================================
+   MOVER MENÚ DE PREGUNTAS
+   Más arriba y más hacia la derecha
+   para que no choque con el diálogo
+   ================================================== */
+
+.contenedor-opciones-juego {
+
+    top: 4%;
+
+    right: 3%;
+
+    width: min(
+        25vw,
+        300px
+    );
+
+    height: min(
+        48vh,
+        330px
+    );
+
+}
+
+
+/* ==================================================
+   MOVER EL CARTEL DEL NOMBRE
+   Un poco más a la izquierda
+   ================================================== */
+
+.nombre-personaje-juego {
+
+    left: 5%;
+
+}
+
+
+/* ==================================================
+   HACER QUE LA PANTALLA SE ADAPTE
+   SIN ROMPER LA PROPORCIÓN
+   ================================================== */
+
+.pantalla-juego {
+
+    width: 100vw;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+}
+
+
+/* Mantener los elementos del juego
+   adaptables a distintas resoluciones */
+
+.zona-central-juego {
+
+    width: 100%;
+
+    height: calc(100vh - 13vh);
+
+}
+
+
+/* ==================================================
+   PANTALLAS MÁS CHICAS
+   ================================================== */
+
+@media (max-width: 1200px) {
+
+
+    .contenedor-opciones-juego {
+
+        width: min(
+            28vw,
+            270px
+        );
+
+        height: min(
+            45vh,
+            300px
+        );
+
+        right: 2%;
+
+        top: 3%;
+
+    }
+
+
+    .nombre-personaje-juego {
+
+        left: 3%;
+
+    }
+
+
+}
+
+
+/* ==================================================
+   PANTALLAS MUY CHICAS
+   ================================================== */
+
+@media (max-width: 800px) {
+
+
+    .contenedor-opciones-juego {
+
+        width: 240px;
+
+        height: 280px;
+
+        top: 2%;
+
+        right: 1%;
+
+    }
+
+
+    .boton-opcion-juego span {
+
+        font-size: 12px;
+
+    }
+
+
+    .nombre-personaje-juego {
+
+        left: 2%;
+
+        width: 25%;
+
+    }
+}
+
+/* ==========================================
+   PANTALLA TIENDA - PASADICTOS (CORREGIDO Y CENTRADO)
+   ========================================== */
+
+/* Contenedor Principal */
+.pantalla-tienda {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Botón Volver (Arriba Izquierda) */
+.btn-tienda-volver {
+    position: absolute;
+    top: 3vh;
+    left: 3vh;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.1s ease;
+}
+
+.btn-tienda-volver img {
+    width: 11vh;
+    height: 11vh;
+}
+
+.btn-tienda-volver:active {
+    transform: scale(0.95);
+}
+
+/* Badge de Monedas (Arriba Derecha) */
+.tienda-dinero-badge {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #e5cdab;
+    border: 2px solid #54341b;
+    padding: 4px 16px;
+    border-radius: 20px;
+    color: #2e1808;
+    font-weight: bold;
+    font-size: 1.1rem;
+    z-index: 10;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.tienda-dinero-badge img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Marco Pergamino Central (Fijo en el centro de la pantalla) */
+.tienda-pergamino-marco {
+    position: relative;
+    width: 100vw;
+    max-width: 1500px;
+    height: 95vh;     /* <--- Cambiado de 90vh a 98vh para abarcar casi el 100% del alto */
+    max-height: 950px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto 0 auto; /* <--- Le da un pequeño margen arriba para estirarse bien hacia abajo */
+}
+
+.img-hoja-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: 0;
+}
+
+.img-fondo-tienda {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Banner Cinta TIENDA (Centrado mediante left 50% para no empujar la pantalla) */
+.tienda-banner-titulo {
+    position: absolute;
+    top: -2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Evita desbordes de interacción */
+}
+
+.tienda-banner-titulo img {
+    width: 70vh; /* Tamaño perfecto para que resalte sin romper layout */
+    height: auto;
+}
+
+.texto-cinta-tienda {
+    position: absolute;
+    color: #e2c59a;
+    font-size: 5vh;
+    font-weight: 900;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.85);
+    margin-bottom: -4px;
+    margin-left: 15px;
+}
+
+/* Cuerpo de la Tienda */
+.tienda-cuerpo {
+    position: relative;
+    z-index: 2;
+    width: 88%;
+    height: 78%;
+    margin-top: 30px;
+    display: flex;
+    gap: 25px;
+}
+
+/* Columna Izquierda (Categorías + Inventario) */
+.tienda-columna-izquierda {
+    width: 32%;
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tienda-colgador-contenedor {
+    position: relative;
+    width: 90%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    margin-left: 60px;
+    margin-top: 15px;
+}
+
+.img-colgador-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 87%;
+    object-fit: fill;
+}
+
+.tienda-lista-categorias {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 81%;
+    padding-top: 25px;
+    padding-bottom: 8px;
+    box-sizing: border-box;
+}
+
+.btn-tienda-categoria {
+    background: transparent;
+    border: 3px solid transparent;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 2.3vh;
+    cursor: pointer;
+    width: 88%;
+    height: 4.5vh;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: 0.2vh 0.2vh 0.4vh rgba(0, 0, 0, 0.9);
+    box-sizing: border-box;
+    transition: all 0.15s ease;
+}
+
+/* Resaltado de categoría activa: Rectángulo blanco ajustado exactamente a la madera */
+.btn-tienda-categoria.activa {
+    border: #ffffff;
+    border-radius: 4px; /* Bordes rectos para coincidir con la maderita */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.85), inset 0 0 4px rgba(255, 255, 255, 0.4);
+}
+
+/* Botón Inventario */
+.btn-tienda-inventario {
+    position: relative;
+    width: 70%;
+    height: 100px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.1s ease;
+    transform: translate(25px, -10px);
+}
+
+.btn-tienda-inventario:active {
+   transform: translate(25px, -10px) scale(0.96);
+}
+
+.btn-tienda-inventario img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.btn-tienda-inventario span {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2.2vh;
+    letter-spacing: 0.15vh;
+    text-shadow: 0.2vh 0.2vh 0.4vh rgba(0, 0, 0, 0.8);
+    margin-bottom: 0.5vh;
+}
+
+/* Columna Derecha: Grilla de Productos (3x2) */
+.tienda-columna-derecha {
+    width: 58%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0;
+    padding-top: 5%;
+    box-sizing: border-box;
+   margin-left: 5%;   /* Acerca el bloque hacia la izquierda */
+    margin-right: auto;
+    align-items: center; /* Libera el lado derecho */
+}
+
+/* Tarjetas de Productos */
+.tarjeta-producto-tienda {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    height: 90%;
+    overflow: hidden;
+    
+}
+
+.img-madera-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: 1;
+}
+
+/* Etiqueta de Descuento */
+.contenedor-etiqueta-descuento {
+    position: absolute;
+    top: 15%;
+    right: -15px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedor-etiqueta-descuento img {
+    width: 70px;
+    height: auto;
+}
+
+.contenedor-etiqueta-descuento span {
+    position: absolute;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    transform: rotate(175deg);
+    margin-top: 20px;
+}
+
+/* Imagen de la Prenda */
+.img-prenda-tienda {
+    position: relative;
+    z-index: 2;
+    max-width: 75%;
+    max-height: 16vh;
+    object-fit: contain;
+    margin-bottom: 2vh;
+}
+
+/* Franja de Precio / Botón Comprar */
+.btn-comprar-item {
+    position: absolute;
+    bottom: 1px;
+    left: 1%;
+    z-index: 3;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 97%;
+    height: 40px;
+}
+
+.btn-comprar-item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.btn-comprar-item span {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.precio-tachado {
+    text-decoration: line-through;
+    opacity: 0.75;
+    margin-right: 4px;
+    font-size: 0.7rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   PANTALLA INVENTARIO - PANTALLA COMPLETA
+   ========================================== */
+
+.img-cuadro-fondo,
+.img-pergamino-derecho,
+.inventario-fondo-img {
+    image-rendering: -webkit-optimize-contrast; /* Para Chrome / Edge */
+    image-rendering: crisp-edges;
+}
+
+.pantalla-inventario {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    max-width: 1920px; /* 👈 Agregá esto para que no se estire de más en monitores ultrawide */
+    margin: 0 auto; /* 👈 Centra el contenedor si el monitor supera los 1920px */
+    padding: 0;   /* 👈 Deja un pequeño margen elegante a los costados */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Fondo de Pared - Cubre toda la pantalla siempre */
+.inventario-fondo-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* 👈 Cubre de borde a borde sin dejar espacios negros */
+    z-index: 0;
+}
+
+/* Botón Volver */
+.btn-inventario-atras {
+    position: absolute;
+    top: 3vh;
+    left: 3vh;
+    z-index: 10;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.btn-inventario-atras:active {
+    transform: scale(0.95);
+}
+
+.btn-inventario-atras img {
+    width: 11vh;
+    height: 11vh;
+    object-fit: contain;
+}
+
+/* --- COLUMNA IZQUIERDA (Madera + Botones) --- */
+.inventario-columna-izquierda {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cartel "ROPA" en la parte superior */
+.inventario-cartel-contenedor {
+    width: 32vh;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -5vh; /* Ajuste para encajar sobre el tronco */
+    z-index: 5;
+    margin-left: 10vh;
+}
+
+.img-cartel-base {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-cartel-texto {
+    position: absolute;
+    width: 55%;
+    height: auto;
+    top: 55%;
+    transform: translateY(-50%);
+}
+
+/* Cuadro de Madera con Marcos Dorados */
+.inventario-cuadro-base {
+    position: relative;
+    width: 105vh;       
+    height: 150vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    margin-top: -22vh;
+    margin-left: 14vh;
+}
+
+.img-cuadro-fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;     /* 👈 Mantiene el marco completo en la caja */
+    z-index: 1;
+}
+
+/* Grilla de ítems 3x2 */
+.inventario-grid-items {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5vh;
+    width: 82%;
+    height: 62%;
+    margin-top: 5vh;
+}
+
+.marco-item-inventario {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.img-marco-dorado {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.img-item-prenda {
+    position: absolute;
+    z-index: 2;
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+    width: auto;
+    height: auto;
+}
+
+/* Categorías Inferiores (Remeras, Pantalones, Zapatos, etc.) */
+.inventario-barra-categorias {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 1vh;
+    transform: translateY(-12vh); /* 👈 Esto la fuerza a subir 12vh dinámicamente */
+    margin-left: 6vh;            /* Alineado con el cuadro */
+    margin-top: 1.5vh;
+    background: #c3a882;
+    padding: 0.6vh;
+    border-radius: 0.5vh;
+    border: 0.3vh solid #5a3d28;
+}
+
+.btn-cat-inv {
+    width: 6vh;
+    height: 6vh;
+    background: #e1d3b7;
+    border: 0.2vh solid #8b5a2b;
+    padding: 0.5vh;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.btn-cat-inv.activa {
+    background: #ffffff;
+    border: 0.3vh solid #ffffff;
+    box-shadow: 0 0 1vh rgba(255, 255, 255, 0.9);
+    transform: scale(1.05);
+}
+
+.btn-cat-inv img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+}
+
+/* --- COLUMNA DERECHA (Pergamino + Maniquí) --- */
+.inventario-columna-derecha {
+    position: relative;
+    z-index: 2;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end; /* Alinea el pergamino contra el borde derecho */
+    align-items: center;
+}
+
+.img-pergamino-derecho {
+    height: 100vh;         /* 👈 Ocupa todo el alto de la pantalla igual a tus capturas */
+    width: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.maniqui-contenedor {
+    position: absolute;
+    right: 18%;            /* 👈 Posiciona al maniquí centrado en el pergamino */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    bottom: 5%;
+    height: 85vh;
+}
+
+.img-maniqui-cuerpo {
+    height: 100%;
+    width: auto;
+    position: relative;
+    z-index: 2;
+    object-fit: contain;
+}
+
+.img-maniqui-sombra {
+    position: absolute;
+    bottom: -1%;
+    width: 70%;
+    z-index: 1;
+    object-fit: contain;
+}
+
+/* 🟢 NUEVAS REGLAS AÑADIDAS PARA LA ROPA EQUIPADA 🟢 */
+/* Contenedor de la ropa equipada */
+#capas-ropa-maniqui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3; /* Queda sobre el cuerpo */
+    pointer-events: none;
+}
+
+/* Estilo base de cada prenda equipada */
+.img-ropa-equipada {
+    position: absolute;
+    object-fit: contain;
+    /* Usamos transform-origin para escalar/mover desde el centro superior */
+    transform-origin: top center;
+}
+
+/* -------------------------------------------------------------
+   AJUSTES POR CATEGORÍA
+   Podés modificar 'top', 'left', 'width' y 'transform'
+   según cómo se vean las imágenes en tu maniquí.
+   ------------------------------------------------------------- */
+
+/* 1. Remeras / Camisas / Tops */
+.img-ropa-equipada.prenda-remeras {
+    top: 16.5%;         /* Distancia desde arriba */
+    left: 50%;        /* Centrado horizontal */
+    width: 100%;       /* Ancho de la remera */
+    transform: translateX(-50%) scale(1); 
+    z-index: 30;       /* 👈 Remera por encima del pantalón */
+}
+
+/* 2. Pantalones / Faldas */
+.img-ropa-equipada.prenda-pantalones {
+    top: 38%;         /* Posición de la cintura */
+    left: 48.5%;
+    width: 48%;
+    transform: translateX(-50%) scale(1);
+    z-index: 20;       /* 👈 Pantalón por debajo de la remera */
+}
+
+/* 3. Zapatos / Calzado */
+.img-ropa-equipada.prenda-zapatos {
+    top: 90%;         /* Posición de los pies */
+    left: 48.8%;
+    width: 33%;
+    transform: translateX(-50%) scale(1);
+    z-index: 10;
+}
+
+/* 4. Vestidos */
+.img-ropa-equipada.prenda-vestidos {
+    top: 17%;
+    left: 48.5%;
+    width: 42%;
+    transform: translateX(-50%) scale(1);
+    z-index: 25;
+}
+
+/* 5. Accesorios (Gafas, Sombreros, etc.) */
+.img-ropa-equipada.prenda-accesorios {
+    top: -6%;          /* Posición en la cabeza */
+    left: 48.5%;
+    width: 37%;
+    transform: translateX(-50%) scale(1);
+    z-index: 40;       /* 👈 Sombrero por encima de todo */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   ESTILOS RESPONSIVE - PANTA LLA OPCIONES
+   ========================================== */
+
+.pantalla-opciones {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.opciones-fondo-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Botón atrás anclado proporcionalmente arriba a la izquierda */
+.btn-opciones-atras {
+    position: absolute;
+    top: 2.5%;               /* Posición relativa al contenedor principal */
+    left: 2.5%;
+    width: clamp(55px, 6.5vw, 170px);         /* Al usar % respecto al ancho total de la pantalla, escala 1:1 siempre */
+    
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+}
+
+.btn-opciones-atras img {
+    /* El tamaño escala suavemente entre 50px (móvil/pantalla chica) y 85px (pantalla grande) */
+    width: 100%; 
+    height: auto;
+    display: block;
+}
+
+/* Cartel de Título Centrado Superior */
+.opciones-cartel-titulo {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 6;
+    text-align: center;
+    width: clamp(230px, 23vw, 660px); /* Controla el min, ideal y max en un solo lugar */
+}
+
+.opciones-cartel-titulo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.opciones-cartel-titulo h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    color: #fff;
+    font-size: clamp(1.4rem, 2.5vw, 2.8rem);
+    margin: 0;
+    white-space: nowrap;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.85);
+}
+
+/* Contenedor Base del Pergamino */
+.opciones-pergamino-contenedor {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110vw;
+    max-width: 90vw;
+    height: 110vh;        /* <--- Le damos una altura fija relativa para alargarlo verticalmente */
+    margin-top: -1vh;
+}
+
+.img-pergamino-fondo {
+    width: 100%;
+    height: 100%;        /* <--- Se adapta exactamente al nuevo alto del contenedor */
+    object-fit: fill;    /* <--- Permite estirar la imagen verticalmente */
+    display: block;
+}
+
+/* Bloque del contenido anclado 100% al interior del pergamino */
+.opciones-contenido-filas {
+    position: absolute;
+    top: 64%; /* Antes estaba en 55%, subir este porcentaje lo baja */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0rem;
+    width: 68%; /* Achica el ancho total para juntar maderas y sliders hacia adentro */
+    height: auto; /* Achica el alto total para que SFX no se salga por arriba */
+}
+
+.opciones-fila {
+    display: flex;
+    align-items: center;
+    justify-content: center;            
+    width: 100%;
+    margin-top: -3.5%;
+}
+
+/* Etiquetas de Madera (SFX, Música, Brillo, Resolución) */
+.etiqueta-madera {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42%;
+    min-height: 4.5vh;     /* Le da más altura vertical a la imagen */
+}
+
+.etiqueta-madera img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;   /* Mantiene la proporción de la imagen sin deformarla */
+    display: block;
+}
+
+.etiqueta-madera span {
+    position: absolute;
+    color: #fff;
+    font-weight: bold;
+    font-size: clamp(1rem, 1.8vw, 2.2rem); /* Bajamos un poco la letra para que entre bien */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Sliders de Volumen y Brillo */
+.slider-contenedor {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 52%; /* Subió a 54% para ser más largas */
+}
+
+.img-barra-slider {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.input-range-custom {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.img-boton-slider {
+    position: absolute;
+    width: clamp(30px, 15%, 80px);
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+    transform: translateX(-50%);
+}
+
+/* Selector de Resolución */
+.selector-resolucion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8vw;
+    width: 52%;
+}
+
+.btn-res-flecha {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.btn-res-flecha img {
+    width: clamp(2rem, 3.6vw, 200px);
+    height: auto;
+}
+
+.texto-resolucion {
+    font-size: clamp(1.2rem, 2vw, 2.4rem);
+    font-weight: bold;
+    color: #3e2723;
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================================================
+   CUESTIONARIO FINAL
+   ================================================================ */
+
+.quiz-pantalla {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 80;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        scale(0.97);
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.45s ease;
+}
+
+
+.quiz-pantalla.quiz-visible {
+
+    opacity: 1;
+
+    transform:
+        scale(1);
+}
+
+
+/* ================================================================
+   FONDO
+   ================================================================ */
+
+.quiz-fondo {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* ================================================================
+   MARCO DE MADERA
+   ================================================================ */
+
+.quiz-marco {
+
+    position: absolute;
+
+    inset: 5% 7% 5% 7%;
+
+    width: 86%;
+    height: 90%;
+
+    object-fit: fill;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(
+            0 8px 8px
+            rgba(0, 0, 0, 0.45)
+        );
+}
+
+
+/* ================================================================
+   CONTENIDO
+   ================================================================ */
+
+.quiz-contenido {
+
+    position: absolute;
+
+    inset: 5% 8% 5% 8%;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    pointer-events: none;
+}
+
+
+/* ================================================================
+   NÚMERO DE PREGUNTA
+   ================================================================ */
+
+.quiz-numero {
+
+    position: absolute;
+
+    top: 2%;
+
+    right: 4%;
+
+    color: #f2dfbd;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    font-size:
+        clamp(
+            12px,
+            1.7vh,
+            18px
+        );
+
+    text-shadow:
+        1px 1px 2px #000;
+
+    z-index: 10;
+}
+
+
+/* ================================================================
+   TÍTULO / PERGAMINO
+   ================================================================ */
+
+.quiz-titulo {
+
+    position: relative;
+
+    width: 72%;
+
+    height: 29%;
+
+    min-height: 120px;
+
+    margin-top: 7%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+
+.quiz-imagen-titulo {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+.quiz-texto-titulo {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 78%;
+
+    color: #3d2a20;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    font-size:
+        clamp(
+            14px,
+            2.25vh,
+            25px
+        );
+
+    line-height: 1.2;
+
+    text-align: center;
+
+    text-shadow:
+        0 1px 0
+        rgba(255,255,255,0.3);
+
+    pointer-events: none;
+}
+
+
+/* ================================================================
+   TIMER
+   ================================================================ */
+
+.quiz-timer {
+
+    position: absolute;
+
+    top: 3%;
+
+    right: 7%;
+
+    min-width: 95px;
+
+    height: 38px;
+
+    padding:
+        0 13px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    background:
+        rgba(
+            53,
+            29,
+            13,
+            0.92
+        );
+
+    border:
+        2px solid
+        #a9793e;
+
+    border-radius: 6px;
+
+    box-shadow:
+        0 3px 8px
+        rgba(0,0,0,0.45),
+
+        inset 0 0 7px
+        rgba(0,0,0,0.6);
+
+    color: #f4dfb6;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    font-size:
+        clamp(
+            13px,
+            1.8vh,
+            19px
+        );
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+.quiz-timer-icono {
+
+    font-size: 17px;
+}
+
+
+.quiz-timer-texto {
+
+    min-width: 25px;
+
+    text-align: center;
+}
+
+
+.quiz-timer-peligro {
+
+    animation:
+        quizTimerPeligro
+        0.8s
+        ease-in-out
+        infinite;
+}
+
+
+/* ================================================================
+   OPCIONES
+   ================================================================ */
+
+.quiz-opciones {
+
+    position: absolute;
+
+    left: 9%;
+
+    right: 9%;
+
+    bottom: 6%;
+
+    height: 43%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    grid-template-rows:
+        1fr 1fr;
+
+    gap:
+        14px 6%;
+
+    pointer-events: auto;
+}
+
+
+/* ================================================================
+   BOTÓN DE RESPUESTA
+   ================================================================ */
+
+.quiz-opcion {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 55px;
+
+    padding: 0;
+
+    border: none;
+
+    background:
+        transparent;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: visible;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.quiz-imagen-boton {
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+.quiz-texto-opcion {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 83%;
+
+    color: #f5dfbd;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    font-size:
+        clamp(
+            12px,
+            1.65vh,
+            18px
+        );
+
+    line-height: 1.15;
+
+    text-align: center;
+
+    text-shadow:
+        1px 1px 2px #211108;
+
+    pointer-events: none;
+}
+
+
+.quiz-opcion:hover:not(:disabled) {
+
+    transform:
+        scale(1.035);
+
+    filter:
+        brightness(1.15);
+}
+
+
+.quiz-opcion:active:not(:disabled) {
+
+    transform:
+        scale(0.97);
+
+    filter:
+        brightness(0.88);
+}
+
+
+/* ================================================================
+   CORRECTA
+   ================================================================ */
+
+.quiz-opcion.quiz-correcta {
+
+    filter:
+        brightness(1.25)
+        saturate(1.15);
+
+    transform:
+        scale(1.035);
+}
+
+
+.quiz-opcion.quiz-correcta::after {
+
+    content:
+        '✓';
+
+    position: absolute;
+
+    top: -12px;
+
+    right: -8px;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        #376b35;
+
+    border:
+        2px solid
+        #d9c18e;
+
+    color:
+        #fff;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    z-index: 10;
+
+    box-shadow:
+        0 2px 5px
+        rgba(0,0,0,0.5);
+}
+
+
+/* ================================================================
+   INCORRECTA
+   ================================================================ */
+
+.quiz-opcion.quiz-incorrecta {
+
+    filter:
+        brightness(0.8)
+        saturate(0.8);
+
+    transform:
+        scale(0.98);
+}
+
+
+.quiz-opcion.quiz-incorrecta::after {
+
+    content:
+        '✕';
+
+    position: absolute;
+
+    top: -12px;
+
+    right: -8px;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        #793939;
+
+    border:
+        2px solid
+        #d9c18e;
+
+    color:
+        #fff;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    z-index: 10;
+
+    box-shadow:
+        0 2px 5px
+        rgba(0,0,0,0.5);
+}
+
+
+/* ================================================================
+   BOTONES DESACTIVADOS
+   ================================================================ */
+
+.quiz-opcion:disabled {
+
+    cursor:
+        default;
+}
+
+
+/* ================================================================
+   MENSAJE +70 / -25
+   ================================================================ */
+
+.quiz-mensaje-resultado {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 48%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        scale(0.8);
+
+    z-index: 200;
+
+    padding:
+        13px 25px;
+
+    border-radius: 7px;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    font-size:
+        clamp(
+            15px,
+            2.1vh,
+            23px
+        );
+
+    font-weight: bold;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 15px
+        rgba(0,0,0,0.5);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.3s ease;
+}
+
+
+.quiz-mensaje-visible {
+
+    opacity: 1;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        scale(1);
+}
+
+
+.quiz-mensaje-correcto {
+
+    background:
+        rgba(
+            48,
+            91,
+            46,
+            0.96
+        );
+
+    border:
+        2px solid
+        #d7c48c;
+
+    color:
+        #f9edcf;
+}
+
+
+.quiz-mensaje-incorrecto {
+
+    background:
+        rgba(
+            112,
+            47,
+            40,
+            0.96
+        );
+
+    border:
+        2px solid
+        #d7c48c;
+
+    color:
+        #f9edcf;
+}
+
+
+/* ================================================================
+   RESULTADO FINAL
+   ================================================================ */
+
+.quiz-resultado-final {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    z-index: 100;
+
+    width:
+        min(
+            380px,
+            70%
+        );
+
+    padding:
+        25px;
+
+    text-align: center;
+
+    background:
+        rgba(
+            58,
+            34,
+            19,
+            0.94
+        );
+
+    border:
+        2px solid
+        #c9a961;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.55);
+
+    color:
+        #f4dfbd;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif;
+
+    animation:
+        quizResultadoEntrada
+        0.5s
+        ease-out
+        both;
+}
+
+
+.quiz-resultado-titulo {
+
+    margin-bottom:
+        15px;
+
+    font-size:
+        clamp(
+            20px,
+            3vh,
+            30px
+        );
+}
+
+
+.quiz-resultado-datos {
+
+    margin:
+        8px 0;
+
+    font-size:
+        clamp(
+            14px,
+            2vh,
+            20px
+        );
+}
+
+
+.quiz-resultado-puntos {
+
+    margin-top:
+        15px;
+
+    font-size:
+        clamp(
+            18px,
+            2.5vh,
+            25px
+        );
+
+    font-weight:
+        bold;
+}
+
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
+@media (max-width: 700px) {
+
+    .quiz-marco {
+
+        inset:
+            4% 3% 4% 3%;
+
+        width:
+            94%;
+
+        height:
+            92%;
+    }
+
+
+    .quiz-titulo {
+
+        width:
+            82%;
+
+        height:
+            27%;
+    }
+
+
+    .quiz-opciones {
+
+        left:
+            5%;
+
+        right:
+            5%;
+
+        gap:
+            8px 3%;
+    }
+
+
+    .quiz-texto-opcion {
+
+        font-size:
+            clamp(
+                10px,
+                1.45vh,
+                15px
+            );
+    }
+
+
+    .quiz-timer {
+
+        right:
+            4%;
+
+        min-width:
+            75px;
+
+        height:
+            32px;
+    }
+
+}
+
+
+
+/* ============================================================
+   ARREGLO FINAL DEL CUESTIONARIO
+   COPIAR Y PEGAR AL FINAL DE estilos.css
+   ============================================================ */
+
+
+/* ============================================================
+   CONTENEDOR DE LOS 4 BOTONES
+   ============================================================ */
+
+.quiz-opciones {
+
+    position: absolute !important;
+
+    left: 50% !important;
+
+    bottom: 14% !important;
+
+    transform: translateX(-50%) !important;
+
+    width: 70% !important;
+
+    height: 34% !important;
+
+    max-width: 1200px !important;
+
+    z-index: 30 !important;
+
+    pointer-events: none;
+
+}
+
+
+/* ============================================================
+   CADA BOTÓN USA UNA PARTE DEL PNG
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion {
+
+    position: absolute !important;
+
+    width: 47% !important;
+
+    height: 42% !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    border: none !important;
+
+    background-image:
+        url('../assets/botonesPreguntas.png') !important;
+
+    background-repeat: no-repeat !important;
+
+    background-size: 212% 212% !important;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    box-sizing: border-box;
+
+    color: #f4e5c8 !important;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif !important;
+
+    font-size:
+        clamp(12px, 1.45vw, 18px) !important;
+
+    line-height: 1.15 !important;
+
+    text-align: center !important;
+
+    text-shadow:
+        1px 1px 2px #000,
+        0 0 2px #000 !important;
+
+    overflow: hidden;
+
+}
+
+
+/* ============================================================
+   OCULTAR LOS PNG INDIVIDUALES QUE YA CREA EL JS
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion img {
+
+    display: none !important;
+
+}
+
+
+/* ============================================================
+   BOTÓN 1
+   ARRIBA IZQUIERDA
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:nth-child(1) {
+
+    left: 0 !important;
+
+    top: 0 !important;
+
+    background-position:
+        left top !important;
+
+}
+
+
+/* ============================================================
+   BOTÓN 2
+   ARRIBA DERECHA
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:nth-child(2) {
+
+    right: 0 !important;
+
+    top: 0 !important;
+
+    background-position:
+        right top !important;
+
+}
+
+
+/* ============================================================
+   BOTÓN 3
+   ABAJO IZQUIERDA
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:nth-child(3) {
+
+    left: 0 !important;
+
+    bottom: 0 !important;
+
+    background-position:
+        left bottom !important;
+
+}
+
+
+/* ============================================================
+   BOTÓN 4
+   ABAJO DERECHA
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:nth-child(4) {
+
+    right: 0 !important;
+
+    bottom: 0 !important;
+
+    background-position:
+        right bottom !important;
+
+}
+
+
+/* ============================================================
+   TEXTO
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion span {
+
+    position: relative;
+
+    z-index: 5;
+
+    width: 88%;
+
+    pointer-events: none;
+
+    color: #f4e5c8 !important;
+
+    text-shadow:
+        1px 1px 2px #000,
+        0 0 2px #000 !important;
+
+}
+
+
+/* ============================================================
+   ANIMACIÓN AL PASAR EL MOUSE
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:hover {
+
+    filter:
+        brightness(1.12)
+        drop-shadow(
+            0 3px 4px rgba(0,0,0,0.45)
+        );
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+/* ============================================================
+   CORRECTA
+   ============================================================ */
+
+.quiz-opciones
+.quiz-opcion.quiz-correcta {
+
+    filter:
+        brightness(1.25)
+        drop-shadow(
+            0 0 9px rgba(80,255,100,0.95)
+        ) !important;
+
+}
+
+
+/* ============================================================
+   INCORRECTA
+   ============================================================ */
+
+.quiz-opciones
+.quiz-opcion.quiz-incorrecta {
+
+    filter:
+        brightness(0.78)
+        drop-shadow(
+            0 0 9px rgba(255,50,50,0.95)
+        ) !important;
+
+}
+
+
+/* ============================================================
+   CRONÓMETRO
+   ARRIBA A LA DERECHA SOBRE LA MADERA
+   ============================================================ */
+
+.quiz-cronometro {
+
+    position: absolute !important;
+
+    top: 5.5% !important;
+
+    right: 7.5% !important;
+
+    width: 92px !important;
+
+    height: 34px !important;
+
+    z-index: 100 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+}
+
+
+/* Fondo del timer */
+
+.quiz-barra-cronometro {
+
+    position: absolute !important;
+
+    left: 0 !important;
+
+    top: 0 !important;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    z-index: 1 !important;
+
+}
+
+
+/* Reloj */
+
+.quiz-reloj {
+
+    position: absolute !important;
+
+    left: 10px !important;
+
+    top: 50% !important;
+
+    width: 15px !important;
+
+    height: 15px !important;
+
+    transform: translateY(-50%) !important;
+
+    z-index: 3 !important;
+
+}
+
+
+/* Números del timer */
+
+.quiz-tiempo {
+
+    position: relative !important;
+
+    z-index: 5 !important;
+
+    margin-left: 18px !important;
+
+    color: #ead7b3 !important;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif !important;
+
+    font-size: 16px !important;
+
+    line-height: 1 !important;
+
+    text-shadow:
+        1px 1px 2px #000 !important;
+
+}
+
+
+/* ============================================================
+   "PREGUNTA 1 DE 5"
+   ARRIBA A LA DERECHA
+   ============================================================ */
+
+.quiz-numero-pregunta {
+
+    position: absolute !important;
+
+    top: 5.2% !important;
+
+    right: 1.8% !important;
+
+    z-index: 90 !important;
+
+    color: #ead7b3 !important;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif !important;
+
+    font-size:
+        clamp(11px, 1.3vw, 17px) !important;
+
+    text-shadow:
+        1px 1px 2px #000 !important;
+
+    white-space: nowrap;
+
+}
+
+
+/* ============================================================
+   QUE LOS BOTONES NO SE VEAN COMO BOTONES HTML
+   ============================================================ */
+
+.quiz-opciones button {
+
+    appearance: none !important;
+
+    -webkit-appearance: none !important;
+
+    outline: none !important;
+
+}
+
+
+/* ============================================================
+   CUANDO YA SE RESPONDIÓ
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:disabled {
+
+    cursor: default !important;
+
+}
+
+/* ============================================================
+   ⭐ CUESTIONARIO - IGUAL AL PROTOTIPO
+   PEGAR TODO ESTO AL FINAL DE estilos.css
+   ============================================================ */
+
+
+/* ============================================================
+   MADERA PRINCIPAL
+   ============================================================ */
+
+.quiz-pantalla-especial {
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    overflow: hidden !important;
+
+}
+
+
+/* ============================================================
+   FONDO DEL CUESTIONARIO
+   ============================================================ */
+
+.quiz-pantalla-especial .quiz-fondo {
+
+    position: absolute !important;
+
+    left: 9.3% !important;
+
+    top: 9.8% !important;
+
+    width: 81.8% !important;
+
+    height: 80% !important;
+
+    object-fit: fill !important;
+
+    z-index: 1 !important;
+
+}
+
+
+/* ============================================================
+   CADENAS
+   ============================================================ */
+
+.quiz-pantalla-especial .quiz-cadenas {
+
+    position: absolute !important;
+
+    left: 14% !important;
+
+    top: 42% !important;
+
+    width: 72% !important;
+
+    height: 38% !important;
+
+    object-fit: fill !important;
+
+    z-index: 5 !important;
+
+    pointer-events: none !important;
+
+}
+
+
+/* ============================================================
+   PERGAMINO DE LA PREGUNTA
+   ============================================================ */
+
+.quiz-marco-pregunta {
+
+    position: absolute !important;
+
+    left: 17.3% !important;
+
+    top: 20.5% !important;
+
+    width: 67.1% !important;
+
+    height: 28.5% !important;
+
+    z-index: 10 !important;
+
+}
+
+
+/* Imagen del pergamino */
+
+.quiz-marco-pregunta img {
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    object-fit: fill !important;
+
+}
+
+
+/* ============================================================
+   TEXTO DE LA PREGUNTA
+   ============================================================ */
+
+.quiz-texto-pregunta {
+
+    position: absolute !important;
+
+    left: 7% !important;
+
+    right: 7% !important;
+
+    top: 22% !important;
+
+    width: 86% !important;
+
+    color: #302018 !important;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif !important;
+
+    font-size:
+        clamp(
+            20px,
+            2.15vw,
+            30px
+        ) !important;
+
+    line-height: 1.12 !important;
+
+    text-align: center !important;
+
+    z-index: 20 !important;
+
+}
+
+
+/* ============================================================
+   CONTENEDOR DE RESPUESTAS
+   ============================================================ */
+
+.quiz-opciones {
+
+    position: absolute !important;
+
+    left: 14.2% !important;
+
+    top: 51.5% !important;
+
+    width: 71.6% !important;
+
+    height: 31.5% !important;
+
+    z-index: 30 !important;
+
+    transform: none !important;
+
+    pointer-events: none !important;
+
+}
+
+
+/* ============================================================
+   BOTONES DE RESPUESTA
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion {
+
+    position: absolute !important;
+
+    width: 44.5% !important;
+
+    height: 43% !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    border: none !important;
+
+    background: transparent !important;
+
+    cursor: pointer !important;
+
+    pointer-events: auto !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    box-sizing: border-box !important;
+
+}
+
+
+/* ============================================================
+   OCULTAR LOS PNG INDIVIDUALES
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion img {
+
+    display: none !important;
+
+}
+
+
+/* ============================================================
+   USAR EL PNG ÚNICO DE LOS 4 BOTONES
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion {
+
+    background-image:
+        url('../assets/botonesPreguntas.png') !important;
+
+    background-repeat: no-repeat !important;
+
+    background-size: 224% 224% !important;
+
+}
+
+
+/* ============================================================
+   BOTÓN 1
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:nth-child(1) {
+
+    left: 0 !important;
+
+    top: 0 !important;
+
+    background-position:
+        left top !important;
+
+}
+
+
+/* ============================================================
+   BOTÓN 2
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:nth-child(2) {
+
+    right: 0 !important;
+
+    top: 0 !important;
+
+    background-position:
+        right top !important;
+
+}
+
+
+/* ============================================================
+   BOTÓN 3
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:nth-child(3) {
+
+    left: 0 !important;
+
+    bottom: 0 !important;
+
+    background-position:
+        left bottom !important;
+
+}
+
+
+/* ============================================================
+   BOTÓN 4
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:nth-child(4) {
+
+    right: 0 !important;
+
+    bottom: 0 !important;
+
+    background-position:
+        right bottom !important;
+
+}
+
+
+/* ============================================================
+   TEXTO DE RESPUESTAS
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion span {
+
+    position: relative !important;
+
+    z-index: 10 !important;
+
+    width: 84% !important;
+
+    color: #302018 !important;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif !important;
+
+    font-size:
+        clamp(
+            15px,
+            1.45vw,
+            21px
+        ) !important;
+
+    line-height: 1.15 !important;
+
+    text-align: center !important;
+
+    text-shadow:
+        none !important;
+
+    pointer-events: none !important;
+
+}
+
+
+/* ============================================================
+   EFECTO AL PASAR EL MOUSE
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:hover {
+
+    filter:
+        brightness(1.08) !important;
+
+}
+
+
+/* ============================================================
+   RESPUESTA CORRECTA
+   ============================================================ */
+
+.quiz-opciones
+.quiz-opcion.quiz-correcta {
+
+    filter:
+        brightness(1.3)
+        drop-shadow(
+            0 0 8px
+            rgba(80, 255, 100, 0.9)
+        ) !important;
+
+}
+
+
+/* ============================================================
+   RESPUESTA INCORRECTA
+   ============================================================ */
+
+.quiz-opciones
+.quiz-opcion.quiz-incorrecta {
+
+    filter:
+        brightness(0.75)
+        drop-shadow(
+            0 0 8px
+            rgba(255, 50, 50, 0.9)
+        ) !important;
+
+}
+
+
+/* ============================================================
+   ⭐ TIMER
+   LO SACAMOS DE LA MADERA
+   Y LO PONEMOS SOBRE LA BARRA MARRÓN
+   ============================================================ */
+
+.quiz-cronometro {
+
+    position: fixed !important;
+
+    top: 0.8% !important;
+
+    right: 1% !important;
+
+    width: 100px !important;
+
+    height: 38px !important;
+
+    z-index: 9999 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+}
+
+
+/* Fondo del timer */
+
+.quiz-barra-cronometro {
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    object-fit: fill !important;
+
+    z-index: 1 !important;
+
+}
+
+
+/* Reloj */
+
+.quiz-reloj {
+
+    position: absolute !important;
+
+    right: -2px !important;
+
+    top: 50% !important;
+
+    width: 38px !important;
+
+    height: 38px !important;
+
+    transform:
+        translateY(-50%) !important;
+
+    object-fit: contain !important;
+
+    z-index: 5 !important;
+
+}
+
+
+/* Tiempo */
+
+.quiz-tiempo {
+
+    position: absolute !important;
+
+    left: 17px !important;
+
+    top: 50% !important;
+
+    transform:
+        translateY(-50%) !important;
+
+    z-index: 5 !important;
+
+    color: #f5e4c3 !important;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif !important;
+
+    font-size: 14px !important;
+
+    text-shadow:
+        1px 1px 2px #000 !important;
+
+}
+
+
+/* ============================================================
+   ⭐ "PREGUNTA 1 DE 5"
+   AL LADO DEL TIMER
+   ============================================================ */
+
+.quiz-numero-pregunta {
+
+    position: fixed !important;
+
+    top: 1.8% !important;
+
+    right: 11.5% !important;
+
+    z-index: 9998 !important;
+
+    color: #e8d7b7 !important;
+
+    font-family:
+        Georgia,
+        'Times New Roman',
+        serif !important;
+
+    font-size:
+        clamp(
+            12px,
+            1vw,
+            16px
+        ) !important;
+
+    text-shadow:
+        1px 1px 2px #000 !important;
+
+    white-space: nowrap !important;
+
+}
+
+
+/* ============================================================
+   QUITAR FONDO RARO DE LOS BOTONES
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:focus {
+
+    outline: none !important;
+
+}
+
+
+/* ============================================================
+   CUANDO YA RESPONDIÓ
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion:disabled {
+
+    cursor: default !important;
+
+}
+
+/* ============================================================
+   CUESTIONARIO - AJUSTE VISUAL AL PROTOTIPO
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   PANTALLA
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+
+/* ------------------------------------------------------------
+   MADERA
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial .quiz-fondo {
+    position: absolute !important;
+
+    left: 7.1% !important;
+    top: 9.8% !important;
+
+    width: 85.8% !important;
+    height: 82% !important;
+
+    object-fit: fill !important;
+
+    z-index: 1 !important;
+}
+
+
+/* ------------------------------------------------------------
+   CADENAS
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial .quiz-cadenas {
+    position: absolute !important;
+
+    left: 10.5% !important;
+    top: 40% !important;
+
+    width: 79% !important;
+    height: 42% !important;
+
+    object-fit: fill !important;
+
+    z-index: 5 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   PERGAMINO
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial .quiz-marco-pregunta {
+    position: absolute !important;
+
+    left: 13.4% !important;
+    top: 18% !important;
+
+    width: 73.2% !important;
+    height: 29.5% !important;
+
+    z-index: 20 !important;
+}
+
+
+/* ------------------------------------------------------------
+   IMAGEN DEL PERGAMINO
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-marco-pregunta img {
+
+    position: absolute !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: fill !important;
+}
+
+
+/* ------------------------------------------------------------
+   TEXTO DE LA PREGUNTA
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-texto-pregunta {
+
+    position: absolute !important;
+
+    left: 7% !important;
+    top: 21% !important;
+
+    width: 86% !important;
+
+    color: #302018 !important;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif !important;
+
+    font-size:
+        clamp(19px, 2vw, 30px) !important;
+
+    line-height: 1.12 !important;
+
+    text-align: center !important;
+
+    z-index: 30 !important;
+}
+
+
+/* ------------------------------------------------------------
+   CONTENEDOR DE RESPUESTAS
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial .quiz-opciones {
+
+    position: absolute !important;
+
+    left: 10.5% !important;
+    top: 49% !important;
+
+    width: 79% !important;
+    height: 36% !important;
+
+    z-index: 40 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* ============================================================
+   ⭐ CADA BOTÓN USA EL MISMO PNG DE 4 BOTONES
+   ============================================================ */
+
+.quiz-pantalla-especial
+.quiz-opciones
+.quiz-opcion {
+
+    position: absolute !important;
+
+    width: 45% !important;
+    height: 42% !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    border: none !important;
+
+    background-image:
+        url("../assets/botonesPreguntas.png") !important;
+
+    background-repeat: no-repeat !important;
+
+    background-size: 200% 200% !important;
+
+    cursor: pointer !important;
+
+    pointer-events: auto !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    box-sizing: border-box !important;
+
+    z-index: 50 !important;
+}
+
+
+/* ------------------------------------------------------------
+   OCULTAR EL BOTÓN PNG INDIVIDUAL QUE CREA EL JS
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-opciones
+.quiz-opcion img {
+
+    display: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   BOTÓN 1 - ARRIBA IZQUIERDA
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-opciones
+.quiz-opcion:nth-child(1) {
+
+    left: 0 !important;
+    top: 0 !important;
+
+    background-position:
+        left top !important;
+}
+
+
+/* ------------------------------------------------------------
+   BOTÓN 2 - ARRIBA DERECHA
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-opciones
+.quiz-opcion:nth-child(2) {
+
+    right: 0 !important;
+    top: 0 !important;
+
+    background-position:
+        right top !important;
+}
+
+
+/* ------------------------------------------------------------
+   BOTÓN 3 - ABAJO IZQUIERDA
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-opciones
+.quiz-opcion:nth-child(3) {
+
+    left: 0 !important;
+    bottom: 0 !important;
+
+    background-position:
+        left bottom !important;
+}
+
+
+/* ------------------------------------------------------------
+   BOTÓN 4 - ABAJO DERECHA
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-opciones
+.quiz-opcion:nth-child(4) {
+
+    right: 0 !important;
+    bottom: 0 !important;
+
+    background-position:
+        right bottom !important;
+}
+
+
+/* ------------------------------------------------------------
+   TEXTO DE LOS BOTONES
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-opciones
+.quiz-opcion span {
+
+    position: relative !important;
+
+    width: 84% !important;
+
+    color: #302018 !important;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif !important;
+
+    font-size:
+        clamp(16px, 1.4vw, 21px) !important;
+
+    line-height: 1.12 !important;
+
+    text-align: center !important;
+
+    text-shadow: none !important;
+
+    z-index: 60 !important;
+
+    pointer-events: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   HOVER
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-opciones
+.quiz-opcion:hover {
+
+    filter: brightness(1.08) !important;
+
+}
+
+
+/* ============================================================
+   TIMER
+   ============================================================ */
+
+.quiz-pantalla-especial .quiz-cronometro {
+
+    position: fixed !important;
+
+    top: 5px !important;
+    right: 8px !important;
+
+    width: 100px !important;
+    height: 38px !important;
+
+    z-index: 99999 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+}
+
+
+/* ------------------------------------------------------------
+   BARRA DEL TIMER
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-barra-cronometro {
+
+    position: absolute !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: fill !important;
+
+    z-index: 1 !important;
+}
+
+
+/* ------------------------------------------------------------
+   RELOJ
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-reloj {
+
+    position: absolute !important;
+
+    right: -2px !important;
+    top: 50% !important;
+
+    width: 38px !important;
+    height: 38px !important;
+
+    transform:
+        translateY(-50%) !important;
+
+    z-index: 5 !important;
+}
+
+
+/* ------------------------------------------------------------
+   TIEMPO
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-tiempo {
+
+    position: absolute !important;
+
+    left: 16px !important;
+    top: 50% !important;
+
+    transform:
+        translateY(-50%) !important;
+
+    z-index: 6 !important;
+
+    color: #f5e4c3 !important;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif !important;
+
+    font-size: 14px !important;
+
+    text-shadow:
+        1px 1px 2px #000 !important;
+}
+
+
+/* ------------------------------------------------------------
+   "PREGUNTA 1 DE 5"
+   ------------------------------------------------------------ */
+
+.quiz-pantalla-especial
+.quiz-numero-pregunta {
+
+    position: fixed !important;
+
+    top: 18px !important;
+    right: 10.5% !important;
+
+    z-index: 99998 !important;
+
+    color: #e8d7b7 !important;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif !important;
+
+    font-size: 15px !important;
+
+    text-shadow:
+        1px 1px 2px #000 !important;
+
+    white-space: nowrap !important;
+}
+
+/* ============================================================
+   CUESTIONARIO - UN SOLO PNG DE BOTONES
+   ============================================================ */
+
+.quiz-opciones {
+
+    position: absolute !important;
+
+    left: 50% !important;
+
+    top: 340px !important;
+
+    transform: translateX(-50%) !important;
+
+    width: 1050px !important;
+
+    height: 390px !important;
+
+    display: block !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    overflow: visible !important;
+
+    z-index: 20 !important;
+}
+
+
+/* ============================================================
+   ÚNICO PNG
+   ============================================================ */
+
+.quiz-botones-sprite {
+
+    position: absolute !important;
+
+    left: 0 !important;
+
+    top: 0 !important;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    object-fit: fill !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    display: block !important;
+
+    pointer-events: none !important;
+
+    z-index: 1 !important;
+}
+
+
+/* ============================================================
+   BOTONES INVISIBLES
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion {
+
+    position: absolute !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    background: transparent !important;
+
+    background-image: none !important;
+
+    border: none !important;
+
+    outline: none !important;
+
+    box-shadow: none !important;
+
+    cursor: pointer !important;
+
+    z-index: 10 !important;
+
+    appearance: none !important;
+
+    -webkit-appearance: none !important;
+
+    display: block !important;
+}
+
+
+/* ============================================================
+   QUITAR CUALQUIER IMAGEN INDIVIDUAL
+   ============================================================ */
+
+.quiz-opciones .quiz-opcion img.quiz-imagen-boton {
+
+    display: none !important;
+
+}
+
+
+/* ============================================================
+   TEXTO DE CADA RESPUESTA
+   ============================================================ */
+
+.quiz-opciones .quiz-texto-opcion {
+
+    position: absolute !important;
+
+    left: 5% !important;
+
+    top: 50% !important;
+
+    width: 90% !important;
+
+    transform: translateY(-50%) !important;
+
+    margin: 0 !important;
+
+    padding: 0 10px !important;
+
+    text-align: center !important;
+
+    pointer-events: none !important;
+
+    z-index: 20 !important;
+
+    font-size: 20px !important;
+
+    line-height: 1.15 !important;
+
+}
+
+
+/* ============================================================
+   EVITAR QUE LOS ESTADOS DE CORRECTO/INCORRECTO
+   ROMPAN EL PNG
+   ============================================================ */
+
+.quiz-opciones .quiz-correcta,
+.quiz-opciones .quiz-incorrecta,
+.quiz-opciones .quiz-acierto,
+.quiz-opciones .quiz-error {
+
+    background: transparent !important;
+
+    background-image: none !important;
+
+    box-shadow: none !important;
+
+}
+
+
+/* ============================================================
+   TIMER
+   ============================================================ */
+
+.quiz-timer {
+
+    position: absolute !important;
+
+    top: 55px !important;
+
+    right: 150px !important;
+
+    width: 140px !important;
+
+    height: 55px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    z-index: 50 !important;
+
+}
+
+
+/* ============================================================
+   RELOJ
+   ============================================================ */
+
+.quiz-reloj {
+
+    position: absolute !important;
+
+    left: 0 !important;
+
+    top: 0 !important;
+
+    width: 48px !important;
+
+    height: 48px !important;
+
+    object-fit: contain !important;
+
+    z-index: 3 !important;
+
+}
+
+
+/* ============================================================
+   BARRA DEL CRONÓMETRO
+   ============================================================ */
+
+.quiz-barra-cronometro {
+
+    position: absolute !important;
+
+    left: 28px !important;
+
+    top: 8px !important;
+
+    width: 105px !important;
+
+    height: 30px !important;
+
+    object-fit: fill !important;
+
+    z-index: 2 !important;
+
+}
+
+
+/* ============================================================
+   NÚMERO DEL TIMER
+   ============================================================ */
+
+.quiz-timer-texto {
+
+    position: absolute !important;
+
+    left: 70px !important;
+
+    top: 13px !important;
+
+    width: 45px !important;
+
+    height: 25px !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    color: white !important;
+
+    font-size: 18px !important;
+
+    font-weight: bold !important;
+
+    z-index: 10 !important;
+
+}
+
+
+/* ============================================================
+   CUANDO QUEDAN 10 SEGUNDOS
+   ============================================================ */
+
+.quiz-timer-peligro .quiz-timer-texto {
+
+    animation: quizTimerPeligro 0.5s infinite alternate;
+
+}
+
+
+@keyframes quizTimerPeligro {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   PANTALLA DE AYUDA (RESPONSIVA)
+   ========================================== */
+
+.pantalla-ayuda {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+/* Fondo de madera principal */
+.fondo-ayuda {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Botón flotante para volver (esquina superior izquierda) */
+.btn-volver-ayuda-top {
+    position: absolute;
+    top: 3%;
+    left: 2.5%;
+    width: clamp(40px, 5.5vw, 200px);
+    height: clamp(40px, 5.5vw, 200px);
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn-volver-ayuda-top:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* Hoja pergamino central */
+.hoja-ayuda {
+    position: absolute;
+    width: 84%;
+    max-width: 2000px;
+    height: 90%;
+    bottom: 2%;
+    z-index: 2;
+    object-fit: fill;
+}
+
+/* Cartel de madera del título */
+.cartel-ayuda-contenedor {
+    position: absolute;
+    top: 0%;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(200px, 25vw, 600px);
+}
+
+.cartel-ayuda-img {
+    width: 100%;
+    height: auto;
+}
+
+.cartel-ayuda-texto {
+    position: absolute;
+    width: 60%;
+    height: auto;
+    top: 42%;
+}
+
+/* Contenedor de las 3 notas adhesivas */
+.contenedor-notas-ayuda {
+    position: absolute;
+    bottom: 11%;
+    width: 78%;
+    max-width: 2000px;
+    display: flex;
+    justify-content: center;
+    gap: 3%; /* Agrega un espacio fijo y parejo entre cada una */
+    align-items: center;
+    z-index: 4;
+    padding: 0 1%;
+}
+
+/* Estilos individuales de cada nota */
+.nota-ayuda {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    max-width: 31%;
+}
+
+.nota-1 { 
+    transform: rotate(-1deg);
+}
+
+.nota-2 { 
+    transform: rotate(2.5deg);
+}
+
+.nota-3 { 
+    transform: rotate(-0.5deg);
+    max-width: 23.6%; /* El valor general era 31%, al bajarlo a 26% o 25% la nota completa se reduce */
+}
+
+/* Imagen del papel de la nota */
+.papel-nota {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Texto sobre la nota */
+.texto-nota {
+    position: absolute;
+    width: 82%;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* Modifica solo la nota 3 */
+.nota-3 .texto-nota {
+    width: 50%;
+}
+
+/* Pinche de chincheta */
+.pinche-nota {
+    position: absolute;
+    top: -6%;
+    left: 74%; /* Aumentamos para moverlo más a la derecha (el centro original es 50%) */
+    width: clamp(27px, 3.7vw, 200px);
+    height: auto;
+    z-index: 6;
+}
+
+/* ==========================================
+   AJUSTES PARA PANTALLAS PEQUEÑAS / MÓVILES
+   ========================================== */
+@media (max-aspect-ratio: 4/3) or (max-width: 768px) {
+    .cartel-ayuda-contenedor {
+        top: 2%;
+        width: clamp(160px, 35vw, 260px);
+    }
+
+    .hoja-ayuda {
+        width: 92%;
+        height: 80%;
+        bottom: 2%;
+    }
+
+    .contenedor-notas-ayuda {
+        width: 86%;
+        bottom: 8%;
+    }
+}
+
+
+
+/* Ajustes exclusivos para monitores grandes/4K */
+@media (min-width: 1800px) {
+    .contenedor-notas-ayuda {
+        bottom: 15%;
+    }
+
+    /* Agrandar el cartel "CÓMO JUGAR" en pantallas grandes */
+    .cartel-ayuda-contenedor {
+        width: 60vw; /* Al usar 25vw crecerá proporcionalmente con el ancho de la pantalla */
+        max-width: 600px; /* Aumentamos el tope máximo (antes era 360px) */
     }
 }
