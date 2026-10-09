@@ -18,10 +18,13 @@ class GestorPantallas {
         this.pantallasRegistradas.set('MenuPrincipal', MenuPrincipal);
         this.pantallasRegistradas.set('PantallaJuego', PantallaJuego);
         this.pantallasRegistradas.set('PantallaTienda', PantallaTienda);
+        this.pantallasRegistradas.set('PantallaInventario', PantallaInventario);
         this.pantallasRegistradas.set('PantallaCargar', PantallaCargar);
         this.pantallasRegistradas.set('PantallaOpciones', PantallaOpciones);
         this.pantallasRegistradas.set('PantallaUsuario', PantallaUsuario);
         this.pantallasRegistradas.set('ConfirmacionSalir', ConfirmacionSalir);
+        // AGREGAS ESTA LÍNEA AQUÍ ABAJO:
+        this.pantallasRegistradas.set('PantallaAyuda', PantallaAyuda);
     }
     
     cambiarPantalla(nombrePantalla, datos = {}) {
